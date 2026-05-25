@@ -1,0 +1,44 @@
+
+> dsoversease@0.1.0 dev
+> next dev
+
+▲ Next.js 16.2.6 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.29.99:3000
+- Environments: .env.local
+✓ Ready in 1840ms
+Creating turbopack project { dir: 'E:\\aib innovations\\Ds Coded\\dsoversease', testMode: true }
+
+○ Compiling / ...
+ GET / 200 in 7.6s (next.js: 6.8s, application-code: 842ms)
+ GET / 200 in 350ms (next.js: 53ms, application-code: 297ms)
+ GET / 200 in 565ms (next.js: 27ms, application-code: 538ms)
+ GET /about-us 200 in 3.0s (next.js: 2.7s, application-code: 310ms)
+ GET /about-us 200 in 119ms (next.js: 16ms, application-code: 103ms)
+ GET /about-us 200 in 69ms (next.js: 9ms, application-code: 60ms)
+ GET /about-us 200 in 275ms (next.js: 15ms, application-code: 261ms)
+ GET /contact-us 200 in 1176ms (next.js: 999ms, application-code: 177ms)
+ GET /contact-us 200 in 106ms (next.js: 13ms, application-code: 93ms)
+ GET /canada 200 in 980ms (next.js: 861ms, application-code: 119ms)
+ GET /contact-us 200 in 196ms (next.js: 13ms, application-code: 182ms)
+✓ Compiled in 1155ms
+ GET /contact-us 200 in 1031ms (next.js: 728ms, application-code: 302ms)
+ GET /contact-us 200 in 97ms (next.js: 11ms, application-code: 86ms)
+ GET /contact-us 200 in 73ms (next.js: 7ms, application-code: 66ms)
+✓ Compiled in 576ms
+✓ Compiled in 396ms
+ GET /contact-us 200 in 517ms (next.js: 262ms, application-code: 256ms)
+ GET /contact-us 200 in 119ms (next.js: 7ms, application-code: 112ms)
+ GET /contact-us 200 in 94ms (next.js: 8ms, application-code: 86ms)
+ GET /contact-us 200 in 117ms (next.js: 12ms, application-code: 105ms)
+ GET /contact-us 200 in 509ms (next.js: 285ms, application-code: 225ms)
+ GET / 200 in 1066ms (next.js: 412ms, application-code: 654ms)
+ GET / 200 in 56ms (next.js: 9ms, application-code: 47ms)
+ GET / 200 in 60ms (next.js: 7ms, application-code: 53ms)
+ GET / 200 in 403ms (next.js: 22ms, application-code: 381ms)
+✓ Compiled in 1601ms
+ GET / 200 in 3.3s (next.js: 2.3s, application-code: 1025ms)
+ GET /contact-us 200 in 1115ms (next.js: 754ms, application-code: 361ms)
+ GET / 200 in 78ms (next.js: 21ms, application-code: 57ms)
+○ Compiling /student-visa ...
+ GET /student-visa 200 in 3.6s (next.js: 3.5s, application-code: 101ms)

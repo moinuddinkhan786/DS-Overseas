@@ -1,0 +1,678 @@
+/* ========================================
+   DS HEADER - SHARED FLOATING HEADER
+   ======================================== */
+
+/* Header wrapper - positioned to overlay banners */
+.ds-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 20px 80px 0;
+}
+
+/* Blue gradient bar */
+.ds-header-bar {
+  position: relative;
+  z-index: 1;
+  max-width: 1300px;
+  margin: 0 auto;
+  height: 180px;
+  background: linear-gradient(180deg, #1257d6 0%, #0a3ca8 100%);
+  border-radius: 40px;
+  padding: 16px 50px 0;
+}
+
+/* Top utility row */
+.ds-header-utility {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+  font-size: 14px;
+  padding: 8px 10px 12px 10px;
+  margin-bottom: 24px;
+}
+
+.ds-header-hours {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 600;
+}
+
+.ds-header-hours svg {
+  flex-shrink: 0;
+}
+
+.ds-header-socials {
+  display: flex;
+  gap: 12px;
+}
+
+.ds-header-socials a {
+  width: 34px;
+  height: 34px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.ds-header-socials a:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+/* White navigation pill - OVERHANGS the blue bar */
+.ds-header-navbar {
+  position: absolute;
+  z-index: 5;
+  top: 60px;
+  left: -30px;
+  right: -30px;
+  background: #fff;
+  border-radius: 70px;
+  padding: 14px 45px;
+  box-shadow: 0 15px 50px rgba(5, 28, 80, 0.18);
+  display: flex;
+  align-items: center;
+  gap: 35px;
+}
+
+/* Logo */
+.ds-header-logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.ds-header-logo-img {
+  width: 253px;
+  height: 50px;
+  object-fit: cover;
+}
+
+/* Desktop Menu - centered */
+.ds-header-menu-desktop {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex: 1;
+}
+
+.ds-header-menu-desktop > li {
+  position: relative;
+}
+
+.ds-header-menu-desktop a,
+.ds-header-menu-desktop button {
+  background: none;
+  border: none;
+  font-size: 16px;
+  font-weight: 700;
+  color: #1a2b3c;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 0.2s;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.ds-header-menu-desktop a:hover,
+.ds-header-menu-desktop button:hover {
+  color: #1257d6;
+}
+
+/* Mobile Menu - Hidden on desktop */
+.ds-header-menu-mobile {
+  display: none;
+}
+
+.ds-header-caret {
+  width: 10px;
+  height: 10px;
+  transition: transform 0.2s;
+}
+
+/* Dropdown */
+.ds-header-has-dropdown {
+  position: relative;
+}
+
+.ds-header-dropdown {
+  position: absolute;
+  top: calc(100% + 16px);
+  left: 50%;
+  transform: translateX(-50%) translateY(8px);
+  min-width: 180px;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.15);
+  padding: 10px;
+  list-style: none;
+  margin: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.25s ease;
+  z-index: 100;
+}
+
+.ds-header-has-dropdown:hover .ds-header-dropdown,
+.ds-header-has-dropdown.dropdown-open .ds-header-dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+.ds-header-dropdown li a {
+  display: block;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #3d4d6e;
+}
+
+.ds-header-dropdown li a:hover {
+  background: #eef3fb;
+  color: #1257d6;
+}
+
+.ds-header-has-dropdown:hover .ds-header-caret,
+.ds-header-has-dropdown.dropdown-open .ds-header-caret {
+  transform: rotate(180deg);
+}
+
+/* Nav actions (search, cart, burger) */
+.ds-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.ds-header-icon-btn {
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: transparent;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #1a2b3c;
+  transition: background 0.2s, color 0.2s;
+  text-decoration: none;
+}
+
+.ds-header-icon-btn:hover {
+  background: rgba(18, 87, 214, 0.08);
+  color: #1257d6;
+}
+
+/* Burger menu */
+.ds-header-burger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 36px;
+  height: 36px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+}
+
+.ds-header-burger span {
+  display: block;
+  height: 3px;
+  background: #1a2b3c;
+  border-radius: 2px;
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+/* ========================================
+   RESPONSIVE STYLES
+   ======================================== */
+
+@media (max-width: 1400px) {
+  .ds-header {
+    padding: 18px 60px 0;
+  }
+
+  .ds-header-bar {
+    height: 170px;
+    padding: 14px 45px 0;
+    border-radius: 35px;
+  }
+
+  .ds-header-navbar {
+    left: -28px;
+    right: -28px;
+    padding: 12px 35px;
+    gap: 30px;
+  }
+
+  .ds-header-menu {
+    gap: 35px;
+  }
+
+  .ds-header-logo-img {
+    width: 230px;
+    height: 45px;
+  }
+
+  .ds-header-menu a,
+  .ds-header-menu button {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .ds-header {
+    padding: 16px 40px 0;
+  }
+
+  .ds-header-bar {
+    height: 160px;
+    padding: 12px 35px 0;
+    border-radius: 32px;
+  }
+
+  .ds-header-navbar {
+    left: -24px;
+    right: -24px;
+    padding: 10px 28px;
+    gap: 24px;
+    border-radius: 60px;
+  }
+
+  .ds-header-menu {
+    gap: 28px;
+  }
+
+  .ds-header-logo-img {
+    width: 200px;
+    height: 40px;
+  }
+
+  .ds-header-menu a,
+  .ds-header-menu button {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .ds-header {
+    padding: 14px 30px 0;
+  }
+
+  .ds-header-bar {
+    height: 150px;
+    border-radius: 28px;
+  }
+
+  .ds-header-navbar {
+    left: -18px;
+    right: -18px;
+    padding: 10px 22px;
+    gap: 18px;
+  }
+
+  .ds-header-menu {
+    gap: 22px;
+  }
+
+  .ds-header-logo-img {
+    width: 180px;
+    height: 36px;
+  }
+
+  .ds-header-menu a,
+  .ds-header-menu button {
+    font-size: 13px;
+  }
+}
+
+/* Mobile drawer header - hidden on desktop */
+.ds-drawer-header {
+  display: none;
+}
+
+/* Overlay - hidden on desktop */
+.ds-header-overlay {
+  display: none;
+}
+
+@media (max-width: 850px) {
+  .ds-header {
+    padding: 16px 16px 0;
+  }
+
+  .ds-header-bar {
+    height: auto;
+    padding: 0;
+    background: transparent;
+    border-radius: 0;
+  }
+
+  .ds-header-utility {
+    display: none;
+  }
+
+  .ds-header-navbar {
+    position: relative;
+    left: 0;
+    right: 0;
+    top: 0;
+    padding: 14px 20px;
+    gap: 16px;
+    border-radius: 60px;
+    justify-content: space-between;
+  }
+
+  /* Hide desktop menu */
+  .ds-header-menu-desktop {
+    display: none;
+  }
+
+  .ds-header-burger {
+    display: flex;
+  }
+
+  .ds-header-icon-btn {
+    display: none;
+  }
+
+  /* Overlay - transparent, just for closing menu on outside click */
+  .ds-header-overlay {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: transparent;
+    z-index: 1999;
+  }
+
+  /* Mobile Drawer Menu */
+  .ds-header-menu-mobile {
+    display: block;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 360px;
+    max-width: 90vw;
+    height: 100vh;
+    background: #fff;
+    box-shadow: -10px 0 40px rgba(0, 0, 0, 0.2);
+    z-index: 2000;
+    overflow-y: auto;
+    transform: translateX(100%);
+    transition: transform 0.35s ease;
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  .ds-header-menu-mobile.menu-open {
+    transform: translateX(0);
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  /* Drawer header with logo and close button */
+  .ds-drawer-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 20px;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 10px;
+    flex-shrink: 0;
+    pointer-events: auto;
+    position: relative;
+    z-index: 2;
+  }
+
+  .ds-drawer-logo {
+    pointer-events: auto;
+  }
+
+  .ds-drawer-logo img {
+    width: 180px;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .ds-drawer-close {
+    width: 40px;
+    height: 40px;
+    border: none;
+    background: #f5f5f5;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #1a2b3c;
+    transition: background 0.2s, color 0.2s;
+    flex-shrink: 0;
+    pointer-events: auto;
+  }
+
+  .ds-drawer-close:hover {
+    background: #1257d6;
+    color: #fff;
+  }
+
+  /* Drawer Content */
+  .ds-drawer-content {
+    padding: 10px 24px 24px;
+    pointer-events: auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .ds-drawer-section {
+    margin-bottom: 8px;
+    pointer-events: auto;
+    border-bottom: 1px solid #eee;
+  }
+
+  .ds-drawer-section-title {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 14px;
+    font-weight: 700;
+    color: #1257d6;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin: 0;
+    padding: 16px 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    transition: color 0.2s;
+    pointer-events: auto;
+  }
+
+  .ds-drawer-section-title:hover {
+    color: #0a3ca8;
+  }
+
+  .ds-drawer-chevron {
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+    color: #1257d6;
+  }
+
+  .ds-drawer-chevron.open {
+    transform: rotate(180deg);
+  }
+
+  .ds-drawer-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    pointer-events: auto;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+  }
+
+  .ds-drawer-links.open {
+    max-height: 500px;
+    padding-bottom: 16px;
+  }
+
+  .ds-drawer-links li {
+    margin-bottom: 12px;
+    pointer-events: auto;
+  }
+
+  .ds-drawer-links a {
+    display: block;
+    padding: 8px 0;
+    font-size: 15px;
+    font-weight: 600;
+    color: #1a2b3c;
+    text-decoration: none;
+    transition: color 0.2s;
+    -webkit-tap-highlight-color: transparent;
+    pointer-events: auto;
+    cursor: pointer;
+  }
+
+  .ds-drawer-links a:hover,
+  .ds-drawer-links a:active {
+    color: #1257d6;
+  }
+
+  /* Drawer Contact Info */
+  .ds-drawer-contact {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    pointer-events: auto;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+  }
+
+  .ds-drawer-contact.open {
+    max-height: 500px;
+    padding-bottom: 16px;
+  }
+
+  .ds-drawer-contact li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 16px;
+    font-size: 14px;
+    color: #5a6a8a;
+    line-height: 1.5;
+    pointer-events: auto;
+  }
+
+  .ds-drawer-contact svg {
+    flex-shrink: 0;
+    margin-top: 2px;
+    color: #1257d6;
+  }
+
+  .ds-drawer-contact a {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    color: #5a6a8a;
+    text-decoration: none;
+    transition: color 0.2s;
+    pointer-events: auto;
+    cursor: pointer;
+  }
+
+  .ds-drawer-contact a:hover {
+    color: #1257d6;
+  }
+
+  /* Drawer Social Media */
+  .ds-drawer-socials {
+    display: flex;
+    gap: 16px;
+    padding-top: 16px;
+    border-top: 1px solid #eee;
+    margin-top: 24px;
+    pointer-events: auto;
+  }
+
+  .ds-drawer-socials a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #f5f5f5;
+    color: #1a2b3c;
+    transition: all 0.2s;
+    pointer-events: auto;
+    cursor: pointer;
+  }
+
+  .ds-drawer-socials a:hover {
+    background: #1257d6;
+    color: #fff;
+  }
+
+  .ds-header-logo-img {
+    width: 180px;
+    height: 36px;
+  }
+}
+
+@media (max-width: 480px) {
+  .ds-header {
+    padding: 12px 12px 0;
+  }
+
+  .ds-header-navbar {
+    padding: 12px 16px;
+    border-radius: 50px;
+  }
+
+  .ds-header-logo-img {
+    width: 160px;
+    height: 32px;
+  }
+
+  .ds-header-menu-mobile {
+    width: 280px;
+  }
+
+  .ds-drawer-logo img {
+    width: 160px;
+  }
+
+  .ds-drawer-links a {
+    font-size: 14px;
+  }
+}
