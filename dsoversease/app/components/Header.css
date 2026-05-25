@@ -31,8 +31,9 @@
   align-items: center;
   color: #fff;
   font-size: 14px;
-  padding: 8px 10px 12px 10px;
-  margin-bottom: 24px;
+  padding: 8px 10px;
+  margin-bottom: 20px;
+  min-height: 42px;
 }
 
 .ds-header-hours {
@@ -71,7 +72,7 @@
 .ds-header-navbar {
   position: absolute;
   z-index: 5;
-  top: 60px;
+  top: 70px;
   left: -30px;
   right: -30px;
   background: #fff;
