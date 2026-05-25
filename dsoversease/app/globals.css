@@ -46,6 +46,57 @@ video {
   max-width: 100%;
 }
 
+/* Hero Banner Responsive Images */
+.hero-banner {
+  position: relative;
+  width: 100%;
+}
+
+.hero-banner-desktop {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.hero-banner-mobile {
+  display: none;
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  .hero-banner-desktop {
+    display: none;
+  }
+
+  .hero-banner-mobile {
+    display: block;
+  }
+}
+
+/* Visa Page Banner Styles (for other pages) */
+.dso-visa-banner-desktop {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.dso-visa-banner-mobile {
+  display: none;
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  .dso-visa-banner-desktop {
+    display: none;
+  }
+
+  .dso-visa-banner-mobile {
+    display: block;
+  }
+}
+
 .site-page {
   min-height: 100vh;
   overflow-x: hidden;
