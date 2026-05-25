@@ -11,7 +11,8 @@
       "Bash(git pull:*)",
       "Bash(ls:*)",
       "Bash(node test-email.js:*)",
-      "Bash(dir:*)"
+      "Bash(dir:*)",
+      "Bash(cat:*)"
     ]
   }
 }
