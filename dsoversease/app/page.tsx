@@ -506,11 +506,11 @@ export default function Home() {
 
       <picture className="banner">
         <source
-          srcSet="/banners/Artboard 1 copy 2.png"
-          media="(max-width: 768px)"
+          srcSet="/banners/Artboard 1 copy.png"
+          media="(min-width: 769px)"
         />
         <img
-          src="/banners/Artboard 1 copy.png"
+          src="/banners/Artboard 1 copy 2.png"
           alt="Turning study dreams into global realities - DS Overseas"
         />
       </picture>
