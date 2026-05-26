@@ -550,17 +550,25 @@ video {
 }
 
 .flag-code {
-  display: grid !important;
-  place-items: center;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
   width: 52px;
+  min-width: 52px;
   height: 52px;
+  min-height: 52px;
   border-radius: 16px;
   color: var(--blue-dark);
   background: #e8f0fd;
   font-weight: 800;
-  font-size: 28px;
+  font-size: 32px;
   line-height: 1;
   flex-shrink: 0;
+  visibility: visible !important;
+  opacity: 1 !important;
+  font-family: "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", sans-serif;
+  text-align: center;
+  overflow: visible;
 }
 
 .country-row span:last-child {
@@ -1184,6 +1192,22 @@ video {
   text-align: center;
   font-size: 15px;
   font-weight: 600;
+}
+
+@media (min-width: 781px) {
+  .desktop-grid .flag-code {
+    display: flex !important;
+    font-size: 32px !important;
+    width: 52px !important;
+    height: 52px !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+
+  .desktop-grid .country-row {
+    display: flex !important;
+    visibility: visible !important;
+  }
 }
 
 @media (max-width: 1050px) {

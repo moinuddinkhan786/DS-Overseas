@@ -12,7 +12,9 @@
       "Bash(ls:*)",
       "Bash(node test-email.js:*)",
       "Bash(dir:*)",
-      "Bash(cat:*)"
+      "Bash(cat:*)",
+      "Bash(findstr:*)",
+      "Bash(taskkill:*)"
     ]
   }
 }
