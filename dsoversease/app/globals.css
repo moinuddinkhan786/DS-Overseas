@@ -686,6 +686,13 @@ video {
   white-space: nowrap;
 }
 
+@media (max-width: 768px) {
+  .section-header.dark h2 {
+    white-space: normal;
+    font-size: clamp(22px, 5vw, 32px);
+  }
+}
+
 .section-header.dark h2 .accent {
   color: #f5a623;
 }
@@ -1000,7 +1007,7 @@ video {
 
 @media (max-width: 850px) {
   .reels-wrapper {
-    padding: 0 50px;
+    padding: 0 35px;
   }
 
   .reels-track {
@@ -1046,7 +1053,7 @@ video {
 
 @media (max-width: 580px) {
   .reels-wrapper {
-    padding: 0 44px;
+    padding: 0 30px;
   }
 
   .reels-track {
@@ -1060,11 +1067,11 @@ video {
 
 @media (max-width: 480px) {
   .reels {
-    padding: 60px 0 70px;
+    padding: 50px 0 60px;
   }
 
   .reels-wrapper {
-    padding: 0 40px;
+    padding: 0 28px;
   }
 
   .reel-nav-btn {
@@ -1111,11 +1118,35 @@ video {
   .reel-subtitle {
     font-size: 10px;
   }
+
+  .section-header.dark {
+    padding: 0 16px;
+  }
+
+  .section-header.dark p {
+    font-size: 14px;
+  }
 }
 
 @media (max-width: 380px) {
+  .reels-wrapper {
+    padding: 0 20px;
+  }
+
   .reel-card {
-    flex: 0 0 82%;
+    flex: 0 0 calc(100% - 8px);
+  }
+
+  .reels-track {
+    justify-content: center;
+  }
+
+  .reel-nav-prev {
+    left: 2px;
+  }
+
+  .reel-nav-next {
+    right: 2px;
   }
 }
 
