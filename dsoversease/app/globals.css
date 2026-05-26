@@ -676,7 +676,7 @@ video {
   font-weight: 600;
   letter-spacing: 2px;
   text-transform: uppercase;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
 }
 
 .section-header.dark h2 {
@@ -689,10 +689,17 @@ video {
 }
 
 @media (max-width: 768px) {
+  .section-header.dark span {
+    margin-bottom: 16px;
+    font-size: 10px;
+    padding: 5px 14px;
+  }
+
   .section-header.dark h2 {
     white-space: normal;
     font-size: clamp(22px, 5vw, 32px);
     line-height: 1.3;
+    margin-top: 8px;
   }
 }
 
@@ -1059,17 +1066,19 @@ video {
 
 @media (max-width: 580px) {
   .reels-wrapper {
-    padding: 0 24px;
+    padding: 0 20px;
   }
 
   .reels-track-outer {
     display: flex;
     align-items: center;
+    justify-content: center;
   }
 
   .reels-track {
     gap: 16px;
     align-items: center;
+    justify-content: center;
   }
 
   .reel-card {
@@ -1083,16 +1092,22 @@ video {
   }
 
   .reels-wrapper {
-    padding: 0 20px;
+    padding: 0 16px;
   }
 
   .reels-track-outer {
     display: flex;
     justify-content: center;
+    align-items: center;
+  }
+
+  .reels-track {
+    justify-content: center;
   }
 
   .reel-card {
-    max-width: 300px;
+    flex: 0 0 70vw;
+    max-width: 280px;
   }
 
   .reel-nav-btn {
@@ -1106,11 +1121,11 @@ video {
   }
 
   .reel-nav-prev {
-    left: 4px;
+    left: 2px;
   }
 
   .reel-nav-next {
-    right: 4px;
+    right: 2px;
   }
 
   .reel-play-btn {
@@ -1157,9 +1172,9 @@ video {
   }
 }
 
-@media (max-width: 380px) {
+@media (max-width: 390px) {
   .reels-wrapper {
-    padding: 0 12px;
+    padding: 0 8px;
   }
 
   .reels-track-outer {
@@ -1168,31 +1183,48 @@ video {
     display: flex;
     align-items: center;
     justify-content: center;
-  }
-
-  .reel-card {
-    flex: 0 0 80%;
-    max-width: 280px;
-    margin: 0 auto;
+    padding: 0 8px;
   }
 
   .reels-track {
     gap: 20px;
     align-items: center;
+    justify-content: center;
+  }
+
+  .reel-card {
+    flex: 0 0 75vw;
+    max-width: 260px;
+    margin: 0;
   }
 
   .reel-nav-prev {
-    left: 0px;
+    left: 2px;
     z-index: 30;
+    width: 32px;
+    height: 32px;
   }
 
   .reel-nav-next {
-    right: 0px;
+    right: 2px;
     z-index: 30;
+    width: 32px;
+    height: 32px;
+  }
+
+  .reel-nav-btn svg {
+    width: 14px;
+    height: 14px;
   }
 
   .section-header.dark h2 {
     font-size: clamp(20px, 6vw, 28px);
+    padding: 0 8px;
+  }
+
+  .section-header.dark p {
+    font-size: 13px;
+    padding: 0 8px;
   }
 }
 
