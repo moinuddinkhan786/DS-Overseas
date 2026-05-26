@@ -138,13 +138,6 @@ export default function Footer() {
             <p className="ds-footer-copyright">
               &copy; {currentYear} DS Overseas Education Consultants. All rights reserved.
             </p>
-            <div className="ds-footer-legal">
-              <Link href="#">Privacy Policy</Link>
-              <span className="ds-footer-divider">|</span>
-              <Link href="#">Terms of Service</Link>
-              <span className="ds-footer-divider">|</span>
-              <Link href="#">Cookie Policy</Link>
-            </div>
           </div>
         </div>
       </div>

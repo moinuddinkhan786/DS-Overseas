@@ -12,17 +12,17 @@ export default function StudentVisaPage() {
       <Header />
 
       {/* Section 1: Hero Banner */}
-      <section className="hero-banner">
-        <img
-          className="banner-desktop"
-          src="/banners/student visa d.png"
-          alt="Student Visa – From Admission to Approval"
-        />
-        <img
-          className="banner-mobile"
-          src="/banners/student visa m.png"
-          alt="Student Visa – From Admission to Approval"
-        />
+      <section className="dso-visa-section">
+        <picture className="banner hero-banner">
+          <source
+            srcSet="/banners/student visa m.png"
+            media="(max-width: 768px)"
+          />
+          <img
+            src="/banners/student visa d.png"
+            alt="Student Visa – From Admission to Approval"
+          />
+        </picture>
       </section>
 
       {/* Section 2: Complete Student Visa Support */}
@@ -517,7 +517,7 @@ function CTASection() {
 
         <p className="dso-cta-sub">Take the first step with the right guidance and a clear plan.</p>
 
-        <a href="#" className="dso-cta-btn">
+        <a href="/contact-us" className="dso-cta-btn">
           Book Free Consultation
           <span className="dso-cta-btn-arrow">
             <svg viewBox="0 0 24 24">

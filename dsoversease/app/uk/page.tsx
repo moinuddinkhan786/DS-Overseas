@@ -13,16 +13,16 @@ export default function UKPage() {
 
       {/* Section 1: Hero Banner */}
       <section className="dso-visa-section">
-        <img
-          className="dso-visa-banner-desktop"
-          src="/banners/Uk d.png"
-          alt="Study in UK Banner"
-        />
-        <img
-          className="dso-visa-banner-mobile"
-          src="/banners/Uk m.png"
-          alt="Study in UK Banner"
-        />
+        <picture className="banner hero-banner">
+          <source
+            srcSet="/banners/Uk m.png"
+            media="(max-width: 768px)"
+          />
+          <img
+            src="/banners/Uk d.png"
+            alt="Study in UK Banner"
+          />
+        </picture>
       </section>
 
       {/* Section 2: Top Courses in UK */}
@@ -202,7 +202,7 @@ function CostOfLiving() {
           <div className="col-badges">
             <div className="col-badge-main">
               <span className="col-badge-dot"></span>
-              Cost of Living in UK
+              UK
             </div>
             <div className="col-badge-fire">🔥 &nbsp; Plan Your Budget Smart</div>
           </div>
@@ -305,10 +305,8 @@ function StepsToStudy() {
         <div className="steps-header">
           <div className="steps-label">
             <span className="steps-label-dot"></span>
-            Steps to Study in UK
+            To Study in UK
           </div>
-
-          <div className="steps-fire-badge">🧭 &nbsp; Your Roadmap to the UK</div>
 
           <h2 className="steps-headline">
             Your Path to the UK — <span className="steps-underline">Simplified.</span>
@@ -377,7 +375,7 @@ function CTASection() {
         </p>
 
         <div className="cta-btn-wrap">
-          <a href="#" className="cta-btn">
+          <a href="/contact-us" className="cta-btn">
             Start My UK Journey
             <span className="cta-btn-arrow">→</span>
           </a>

@@ -13,16 +13,16 @@ export default function NewZealandPage() {
 
       {/* Section 1: Hero Banner */}
       <section className="dso-visa-section">
-        <img
-          className="dso-visa-banner-desktop"
-          src="/banners/NEW ZEALAND D.png"
-          alt="Study in New Zealand Banner"
-        />
-        <img
-          className="dso-visa-banner-mobile"
-          src="/banners/NEW ZEALAND M.png"
-          alt="Study in New Zealand Banner"
-        />
+        <picture className="banner hero-banner">
+          <source
+            srcSet="/banners/NEW ZEALAND M.png"
+            media="(max-width: 768px)"
+          />
+          <img
+            src="/banners/NEW ZEALAND D.png"
+            alt="Study in New Zealand Banner"
+          />
+        </picture>
       </section>
 
       {/* Section 2: Top Courses in New Zealand */}
@@ -202,7 +202,7 @@ function CostOfLiving() {
           <div className="col-badges">
             <div className="col-badge-main">
               <span className="col-badge-dot"></span>
-              Cost of Living in New Zealand
+              New Zealand
             </div>
             <div className="col-badge-fire">🔥 &nbsp; Plan Your Budget Smart</div>
           </div>
@@ -304,10 +304,8 @@ function StepsToStudy() {
         <div className="steps-header">
           <div className="steps-label">
             <span className="steps-label-dot"></span>
-            Steps to Study in New Zealand
+            To Study in New Zealand
           </div>
-
-          <div className="steps-fire-badge">🧭 &nbsp; Your Roadmap to New Zealand</div>
 
           <h2 className="steps-headline">
             Your Path to New Zealand — <span className="steps-underline">Simplified.</span>
@@ -376,7 +374,7 @@ function CTASection() {
         </p>
 
         <div className="cta-btn-wrap">
-          <a href="#" className="cta-btn">
+          <a href="/contact-us" className="cta-btn">
             Start My New Zealand Journey
             <span className="cta-btn-arrow">→</span>
           </a>

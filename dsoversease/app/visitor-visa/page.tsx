@@ -13,16 +13,16 @@ export default function VisitorVisaPage() {
 
       {/* Section 1: Hero Banner */}
       <section className="dso-visa-section">
-        <img
-          className="dso-visa-banner-desktop"
-          src="/banners/visitor visa d.png"
-          alt="Visitor Visa"
-        />
-        <img
-          className="dso-visa-banner-mobile"
-          src="/banners/visitor visa m.png"
-          alt="Visitor Visa"
-        />
+        <picture className="banner hero-banner">
+          <source
+            srcSet="/banners/visitor visa m.png"
+            media="(max-width: 768px)"
+          />
+          <img
+            src="/banners/visitor visa d.png"
+            alt="Visitor Visa"
+          />
+        </picture>
       </section>
 
       {/* Section 2: Visitor Visa Services with Destinations */}
@@ -57,11 +57,11 @@ function VisitorVisaServices() {
   const TOTAL = 5;
 
   const destinations = [
-    { flag: "\u{1F1E8}\u{1F1E6}", name: "Canada" },
-    { flag: "\u{1F1EC}\u{1F1E7}", name: "United Kingdom" },
-    { flag: "\u{1F1FA}\u{1F1F8}", name: "USA" },
-    { flag: "\u{1F1E6}\u{1F1FA}", name: "Australia" },
-    { flag: "\u{1F1F3}\u{1F1FF}", name: "New Zealand" },
+    { flag: "🇨🇦", name: "Canada" },
+    { flag: "🇬🇧", name: "United Kingdom" },
+    { flag: "🇺🇸", name: "USA" },
+    { flag: "🇦🇺", name: "Australia" },
+    { flag: "🇳🇿", name: "New Zealand" },
   ];
 
   const goTo = (idx: number) => {
@@ -313,7 +313,7 @@ function CTASection() {
         </p>
 
         <div className="cta-btn-wrap">
-          <a href="#" className="cta-btn">
+          <a href="/contact-us" className="cta-btn">
             Book Free Consultation
             <span className="cta-arrow">
               <svg viewBox="0 0 24 24">

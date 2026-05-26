@@ -13,16 +13,16 @@ export default function ContactUsPage() {
       <section className="hero-section">
         <Header />
         {/* Background Image */}
-        <img
-          className="hero-bg-desktop"
-          src="https://lavender-narwhal-554808.hostingersite.com/wp-content/uploads/2026/03/ns.png"
-          alt="Contact Us Banner"
-        />
-        <img
-          className="hero-bg-mobile"
-          src="https://lavender-narwhal-554808.hostingersite.com/wp-content/uploads/2026/03/ns-1.png"
-          alt="Contact Us Banner"
-        />
+        <picture className="banner hero-banner">
+          <source
+            srcSet="https://lavender-narwhal-554808.hostingersite.com/wp-content/uploads/2026/03/ns-1.png"
+            media="(max-width: 768px)"
+          />
+          <img
+            src="https://lavender-narwhal-554808.hostingersite.com/wp-content/uploads/2026/03/ns.png"
+            alt="Contact Us Banner"
+          />
+        </picture>
       </section>
 
       {/* Section 2: Reach Out Section */}

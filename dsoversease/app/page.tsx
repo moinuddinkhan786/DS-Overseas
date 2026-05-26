@@ -90,7 +90,7 @@ const trustCards = [
 const destinations = [
   {
     country: "Canada",
-    code: "CA",
+    code: "🇨🇦",
     growth: "+25% growth",
     tagline: "Study. Work. Settle.",
     desc: "Globally respected education with strong post-study work pathways.",
@@ -103,7 +103,7 @@ const destinations = [
   },
   {
     country: "Australia",
-    code: "AU",
+    code: "🇦🇺",
     growth: "+18% growth",
     tagline: "High ROI. High Lifestyle.",
     desc: "Globally ranked universities with excellent work rights.",
@@ -116,7 +116,7 @@ const destinations = [
   },
   {
     country: "United Kingdom",
-    code: "UK",
+    code: "🇬🇧",
     growth: "+12% growth",
     tagline: "1-Year Master's. Global Exposure.",
     desc: "Fast-track degrees with excellent career prospects.",
@@ -128,7 +128,7 @@ const destinations = [
   },
   {
     country: "USA",
-    code: "US",
+    code: "🇺🇸",
     growth: "+15% growth",
     tagline: "World's Largest Education Hub.",
     desc: "Unmatched academic flexibility and global career scope.",
@@ -140,7 +140,7 @@ const destinations = [
   },
   {
     country: "New Zealand",
-    code: "NZ",
+    code: "🇳🇿",
     growth: "+10% growth",
     tagline: "Peaceful Country. Powerful Degrees.",
     desc: "Industry-focused education in a safe, welcoming environment.",
@@ -504,18 +504,16 @@ export default function Home() {
     <main className="site-page">
       <Header />
 
-      <section className="hero-banner">
+      <picture className="banner hero-banner">
+        <source
+          srcSet="/banners/Artboard 1 copy 2.png"
+          media="(max-width: 768px)"
+        />
         <img
-          className="hero-banner-desktop"
           src="/banners/Artboard 1 copy.png"
           alt="Turning study dreams into global realities - DS Overseas"
         />
-        <img
-          className="hero-banner-mobile"
-          src="/banners/Artboard 1 copy 2.png"
-          alt="Turning study dreams into global realities - DS Overseas"
-        />
-      </section>
+      </picture>
 
       <section className="journey section">
         <div>
@@ -577,12 +575,6 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="trust-copy">
-        <h2>Why 15,000+ Students Trust Us</h2>
-        <p>We do not just process applications. We build successful futures.</p>
-        <p>Clear strategy. Honest guidance. Real results.</p>
-      </section>
-
       <SliderSection
         className="services"
         title="Our Expert Services"
@@ -606,6 +598,12 @@ export default function Home() {
           </article>
         ))}
       </SliderSection>
+
+      <section className="trust-copy">
+        <h2>Why 15,000+ Students Trust Us</h2>
+        <p>We do not just process applications. We build successful futures.</p>
+        <p>Clear strategy. Honest guidance. Real results.</p>
+      </section>
 
       <SliderSection
         className="trust"

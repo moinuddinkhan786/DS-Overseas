@@ -259,7 +259,7 @@ export default function AboutUs() {
         <div className="cta-inner">
           <h2>Get personalized guidance and take the first step towards your study abroad journey.</h2>
           <div className="cta-divider"><div /><span /><div /></div>
-          <a className="cta-btn" href="#">Get Free Consultation <ArrowIcon /></a>
+          <a className="cta-btn" href="/contact-us">Get Free Consultation <ArrowIcon /></a>
           <div className="trust-strip">
             {["100% Free & No Obligation", "Expert Advisors", "99% Visa Success Rate"].map((item) => (
               <span className="trust-item" key={item}><CheckIcon />{item}</span>

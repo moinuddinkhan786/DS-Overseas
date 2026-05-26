@@ -13,16 +13,16 @@ export default function CanadaPage() {
 
       {/* Section 1: Hero Banner */}
       <section className="dso-visa-section">
-        <img
-          className="dso-visa-banner-desktop"
-          src="/banners/canada d.png"
-          alt="Study in Canada Banner"
-        />
-        <img
-          className="dso-visa-banner-mobile"
-          src="/banners/canada m.png"
-          alt="Study in Canada Banner"
-        />
+        <picture className="banner hero-banner">
+          <source
+            srcSet="/banners/canada m.png"
+            media="(max-width: 768px)"
+          />
+          <img
+            src="/banners/canada d.png"
+            alt="Study in Canada Banner"
+          />
+        </picture>
       </section>
 
       {/* Section 2: Top Universities in Canada */}
@@ -206,7 +206,7 @@ function CostOfLiving() {
       <div className="col-container">
         <div className="col-label">
           <span className="col-label-dot"></span>
-          Cost of Living in Canada
+          Canada
         </div>
 
         <div className="col-fire">🔥 &nbsp; Plan Your Budget Smart</div>
@@ -324,7 +324,7 @@ function CTASection() {
         </p>
 
         <div className="cta-btn-wrap">
-          <a href="#" className="cta-btn">
+          <a href="/contact-us" className="cta-btn">
             Book Free Consultation
             <span className="cta-arrow">→</span>
           </a>

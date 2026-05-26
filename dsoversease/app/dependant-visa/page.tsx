@@ -13,16 +13,16 @@ export default function DependantVisaPage() {
 
       {/* Section 1: Hero Banner */}
       <section className="dso-visa-section">
-        <img
-          className="dso-visa-banner-desktop"
-          src="/banners/dependent visa d.png"
-          alt="Dependant Visa Banner"
-        />
-        <img
-          className="dso-visa-banner-mobile"
-          src="/banners/dependent visa m.png"
-          alt="Dependant Visa Banner"
-        />
+        <picture className="banner hero-banner">
+          <source
+            srcSet="/banners/dependent visa m.png"
+            media="(max-width: 768px)"
+          />
+          <img
+            src="/banners/dependent visa d.png"
+            alt="Dependant Visa Banner"
+          />
+        </picture>
       </section>
 
       {/* Section 2: Dependant Visa Destinations */}
@@ -306,7 +306,7 @@ function CTASection() {
         </p>
 
         <div className="cta-btn-wrap">
-          <a href="#" className="cta-btn">
+          <a href="/contact-us" className="cta-btn">
             Book Free Consultation
             <span className="cta-arrow">&#8594;</span>
           </a>
