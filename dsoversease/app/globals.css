@@ -660,6 +660,7 @@ video {
 .section-header.dark {
   position: relative;
   padding: 0 24px;
+  text-align: center;
 }
 
 .section-header.dark span {
@@ -675,21 +676,23 @@ video {
   font-weight: 600;
   letter-spacing: 2px;
   text-transform: uppercase;
-  margin-bottom: 18px;
+  margin-bottom: 20px;
 }
 
 .section-header.dark h2 {
   color: #ffffff;
   font-size: clamp(18px, 2.8vw, 38px);
   font-weight: 800;
-  line-height: 1.15;
-  white-space: nowrap;
+  line-height: 1.4;
+  white-space: normal;
+  margin-top: 0;
 }
 
 @media (max-width: 768px) {
   .section-header.dark h2 {
     white-space: normal;
     font-size: clamp(22px, 5vw, 32px);
+    line-height: 1.3;
   }
 }
 
@@ -716,6 +719,8 @@ video {
 .reels-track-outer {
   overflow: hidden;
   width: 100%;
+  display: flex;
+  align-items: center;
 }
 
 /* Sliding track */
@@ -725,6 +730,7 @@ video {
   padding: 20px 0;
   transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   will-change: transform;
+  align-items: center;
 }
 
 /* Disable transition for instant position reset */
@@ -1053,15 +1059,21 @@ video {
 
 @media (max-width: 580px) {
   .reels-wrapper {
-    padding: 0 30px;
+    padding: 0 24px;
+  }
+
+  .reels-track-outer {
+    display: flex;
+    align-items: center;
   }
 
   .reels-track {
-    gap: 14px;
+    gap: 16px;
+    align-items: center;
   }
 
   .reel-card {
-    flex: 0 0 calc((100% - 14px) / 2);
+    flex: 0 0 calc((100% - 16px) / 2);
   }
 }
 
@@ -1071,7 +1083,16 @@ video {
   }
 
   .reels-wrapper {
-    padding: 0 28px;
+    padding: 0 20px;
+  }
+
+  .reels-track-outer {
+    display: flex;
+    justify-content: center;
+  }
+
+  .reel-card {
+    max-width: 300px;
   }
 
   .reel-nav-btn {
@@ -1082,6 +1103,14 @@ video {
   .reel-nav-btn svg {
     width: 16px;
     height: 16px;
+  }
+
+  .reel-nav-prev {
+    left: 4px;
+  }
+
+  .reel-nav-next {
+    right: 4px;
   }
 
   .reel-play-btn {
@@ -1130,23 +1159,40 @@ video {
 
 @media (max-width: 380px) {
   .reels-wrapper {
-    padding: 0 20px;
+    padding: 0 12px;
   }
 
-  .reel-card {
-    flex: 0 0 calc(100% - 8px);
-  }
-
-  .reels-track {
+  .reels-track-outer {
+    overflow: hidden;
+    width: 100%;
+    display: flex;
+    align-items: center;
     justify-content: center;
   }
 
+  .reel-card {
+    flex: 0 0 80%;
+    max-width: 280px;
+    margin: 0 auto;
+  }
+
+  .reels-track {
+    gap: 20px;
+    align-items: center;
+  }
+
   .reel-nav-prev {
-    left: 2px;
+    left: 0px;
+    z-index: 30;
   }
 
   .reel-nav-next {
-    right: 2px;
+    right: 0px;
+    z-index: 30;
+  }
+
+  .section-header.dark h2 {
+    font-size: clamp(20px, 6vw, 28px);
   }
 }
 
