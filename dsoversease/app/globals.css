@@ -550,7 +550,7 @@ video {
 }
 
 .flag-code {
-  display: grid;
+  display: grid !important;
   place-items: center;
   width: 52px;
   height: 52px;
@@ -558,6 +558,9 @@ video {
   color: var(--blue-dark);
   background: #e8f0fd;
   font-weight: 800;
+  font-size: 28px;
+  line-height: 1;
+  flex-shrink: 0;
 }
 
 .country-row span:last-child {
