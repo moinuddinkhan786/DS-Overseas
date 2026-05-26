@@ -13,16 +13,16 @@ export default function USAPage() {
 
       {/* Section 1: Hero Banner */}
       <section className="dso-visa-section">
-        <picture className="banner hero-banner">
-          <source
-            srcSet="/banners/USA m.png"
-            media="(max-width: 768px)"
-          />
-          <img
-            src="/banners/USA d.png"
-            alt="Study in USA Banner"
-          />
-        </picture>
+        <img
+          src="/banners/USA d.png"
+          alt="Study in USA Banner"
+          className="dso-visa-banner-desktop"
+        />
+        <img
+          src="/banners/USA m.png"
+          alt="Study in USA Banner"
+          className="dso-visa-banner-mobile"
+        />
       </section>
 
       {/* Section 2: Top Courses in USA */}

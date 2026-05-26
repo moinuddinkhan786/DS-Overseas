@@ -9,9 +9,11 @@ import Header from "../components/Header";
 export default function ContactUsPage() {
   return (
     <main className="contact-page">
-      {/* Hero Section with Header */}
+      {/* Header */}
+      <Header />
+
+      {/* Hero Section */}
       <section className="hero-section">
-        <Header />
         {/* Background Image */}
         <picture className="banner hero-banner">
           <source

@@ -13,16 +13,16 @@ export default function VisitorVisaPage() {
 
       {/* Section 1: Hero Banner */}
       <section className="dso-visa-section">
-        <picture className="banner hero-banner">
-          <source
-            srcSet="/banners/visitor visa m.png"
-            media="(max-width: 768px)"
-          />
-          <img
-            src="/banners/visitor visa d.png"
-            alt="Visitor Visa"
-          />
-        </picture>
+        <img
+          src="/banners/visitor visa d.png"
+          alt="Visitor Visa"
+          className="dso-visa-banner-desktop"
+        />
+        <img
+          src="/banners/visitor visa m.png"
+          alt="Visitor Visa"
+          className="dso-visa-banner-mobile"
+        />
       </section>
 
       {/* Section 2: Visitor Visa Services with Destinations */}

@@ -47,38 +47,63 @@ video {
 }
 
 /* Hero Banner Responsive Images */
-.hero-banner {
+.hero-banner-section {
   position: relative;
   width: 100%;
   line-height: 0;
 }
 
-.hero-banner img {
-  display: block;
+.hero-banner-section .hero-banner-desktop {
+  display: block !important;
   width: 100%;
   height: auto;
 }
 
-/* Visa Page Banner Styles (for other pages) */
+.hero-banner-section .hero-banner-mobile {
+  display: none !important;
+  width: 100%;
+  height: auto;
+}
+
+/* Show mobile banner on mobile, hide desktop */
+@media (max-width: 768px) {
+  .hero-banner-section .hero-banner-desktop {
+    display: none !important;
+  }
+
+  .hero-banner-section .hero-banner-mobile {
+    display: block !important;
+  }
+}
+
+/* Visa Page Banner Styles (for destination and services pages) */
+.dso-visa-section {
+  position: relative;
+  width: 100%;
+  line-height: 0;
+  margin: 0;
+  padding: 0;
+}
+
 .dso-visa-banner-desktop {
-  display: block;
+  display: block !important;
   width: 100%;
   height: auto;
 }
 
 .dso-visa-banner-mobile {
-  display: none;
+  display: none !important;
   width: 100%;
   height: auto;
 }
 
 @media (max-width: 768px) {
   .dso-visa-banner-desktop {
-    display: none;
+    display: none !important;
   }
 
   .dso-visa-banner-mobile {
-    display: block;
+    display: block !important;
   }
 }
 
@@ -1796,7 +1821,7 @@ video {
 .about-page .mv-card {
   position: relative;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 3px solid rgba(255, 255, 255, 0.8);
   border-radius: 20px;
   background: rgba(255, 255, 255, 0.06);
   padding: 48px 44px;

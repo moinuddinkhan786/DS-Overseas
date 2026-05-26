@@ -13,16 +13,16 @@ export default function DependantVisaPage() {
 
       {/* Section 1: Hero Banner */}
       <section className="dso-visa-section">
-        <picture className="banner hero-banner">
-          <source
-            srcSet="/banners/dependent visa m.png"
-            media="(max-width: 768px)"
-          />
-          <img
-            src="/banners/dependent visa d.png"
-            alt="Dependant Visa Banner"
-          />
-        </picture>
+        <img
+          src="/banners/dependent visa d.png"
+          alt="Dependant Visa Banner"
+          className="dso-visa-banner-desktop"
+        />
+        <img
+          src="/banners/dependent visa m.png"
+          alt="Dependant Visa Banner"
+          className="dso-visa-banner-mobile"
+        />
       </section>
 
       {/* Section 2: Dependant Visa Destinations */}

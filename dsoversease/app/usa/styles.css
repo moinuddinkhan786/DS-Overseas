@@ -227,7 +227,7 @@
   position: relative;
   padding: 130px 60px 120px;
   overflow: hidden;
-  background: linear-gradient(135deg, #0a2647 0%, #144272 50%, #205295 100%);
+  background: #0a4bd1;
   font-family: 'Montserrat', sans-serif;
 }
 
@@ -727,7 +727,7 @@
   position: relative;
   padding: 130px 60px 120px;
   overflow: hidden;
-  background: linear-gradient(135deg, #0a2647 0%, #144272 50%, #205295 100%);
+  background: #0a4bd1;
   font-family: 'Montserrat', sans-serif;
 }
 
@@ -1211,7 +1211,7 @@
   display: inline-flex;
   align-items: center;
   gap: 16px;
-  background: linear-gradient(135deg, #0a2647 0%, #144272 100%);
+  background: #0a4bd1;
   color: #ffffff;
   font-family: 'Montserrat', sans-serif;
   font-size: 17px;
@@ -1223,13 +1223,13 @@
   cursor: pointer;
   text-decoration: none;
   transition: transform 0.28s, box-shadow 0.28s, background 0.28s;
-  box-shadow: 0 12px 40px rgba(10, 38, 71, 0.25);
+  box-shadow: 0 12px 40px rgba(10, 75, 209, 0.25);
 }
 
 .cta-btn:hover {
   transform: translateY(-5px);
-  box-shadow: 0 22px 56px rgba(10, 38, 71, 0.35);
-  background: linear-gradient(135deg, #144272 0%, #205295 100%);
+  box-shadow: 0 22px 56px rgba(10, 75, 209, 0.35);
+  background: #0842b8;
   text-decoration: none;
 }
 

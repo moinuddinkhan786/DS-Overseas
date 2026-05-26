@@ -13,16 +13,16 @@ export default function AustraliaPage() {
 
       {/* Section 1: Hero Banner */}
       <section className="dso-visa-section">
-        <picture className="banner hero-banner">
-          <source
-            srcSet="/banners/australia m.png"
-            media="(max-width: 768px)"
-          />
-          <img
-            src="/banners/australia d.png"
-            alt="Study in Australia Banner"
-          />
-        </picture>
+        <img
+          src="/banners/australia d.png"
+          alt="Study in Australia Banner"
+          className="dso-visa-banner-desktop"
+        />
+        <img
+          src="/banners/australia m.png"
+          alt="Study in Australia Banner"
+          className="dso-visa-banner-mobile"
+        />
       </section>
 
       {/* Section 2: Top Courses in Australia */}
@@ -53,6 +53,32 @@ function TopCourses() {
     { icon: "🏨", name: "Hospitality & Tourism", tag: "Growing Field" },
     { icon: "🌿", name: "Environmental & Life Sciences", tag: "Top Picked" },
   ];
+
+  const scrollToCard = (index: number) => {
+    const wrapper = wrapperRef.current;
+    if (!wrapper) return;
+
+    const cards = wrapper.querySelectorAll('.uni-card');
+    const card = cards[index] as HTMLElement;
+    if (!card) return;
+
+    const wrapperWidth = wrapper.offsetWidth;
+    const cardWidth = card.offsetWidth;
+    const scrollTarget = card.offsetLeft - (wrapperWidth / 2) + (cardWidth / 2);
+
+    wrapper.scrollTo({ left: scrollTarget, behavior: 'smooth' });
+    setActiveIndex(index);
+  };
+
+  const handlePrev = () => {
+    const newIndex = activeIndex > 0 ? activeIndex - 1 : courses.length - 1;
+    scrollToCard(newIndex);
+  };
+
+  const handleNext = () => {
+    const newIndex = activeIndex < courses.length - 1 ? activeIndex + 1 : 0;
+    scrollToCard(newIndex);
+  };
 
   useEffect(() => {
     const wrapper = wrapperRef.current;
@@ -118,14 +144,31 @@ function TopCourses() {
           </div>
         </div>
 
-        {/* Slider Dots */}
-        <div className="slider-dots">
-          {courses.map((_, idx) => (
-            <div
-              key={idx}
-              className={`slider-dot ${idx === activeIndex ? "active" : ""}`}
-            />
-          ))}
+        {/* Slider Navigation */}
+        <div className="slider-nav">
+          <button
+            className="slider-nav-btn"
+            aria-label="Previous"
+            onClick={handlePrev}
+          >
+            ←
+          </button>
+          <div className="slider-dots">
+            {courses.map((_, idx) => (
+              <div
+                key={idx}
+                className={`slider-dot ${idx === activeIndex ? "active" : ""}`}
+                onClick={() => scrollToCard(idx)}
+              />
+            ))}
+          </div>
+          <button
+            className="slider-nav-btn"
+            aria-label="Next"
+            onClick={handleNext}
+          >
+            →
+          </button>
         </div>
       </div>
     </section>

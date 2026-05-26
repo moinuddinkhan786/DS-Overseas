@@ -13,16 +13,16 @@ export default function StudentVisaPage() {
 
       {/* Section 1: Hero Banner */}
       <section className="dso-visa-section">
-        <picture className="banner hero-banner">
-          <source
-            srcSet="/banners/student visa m.png"
-            media="(max-width: 768px)"
-          />
-          <img
-            src="/banners/student visa d.png"
-            alt="Student Visa – From Admission to Approval"
-          />
-        </picture>
+        <img
+          src="/banners/student visa d.png"
+          alt="Student Visa – From Admission to Approval"
+          className="dso-visa-banner-desktop"
+        />
+        <img
+          src="/banners/student visa m.png"
+          alt="Student Visa – From Admission to Approval"
+          className="dso-visa-banner-mobile"
+        />
       </section>
 
       {/* Section 2: Complete Student Visa Support */}

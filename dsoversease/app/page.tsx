@@ -504,16 +504,18 @@ export default function Home() {
     <main className="site-page">
       <Header />
 
-      <picture className="banner hero-banner">
-        <source
-          srcSet="/banners/Artboard 1 copy 2.png"
-          media="(max-width: 768px)"
-        />
+      <section className="hero-banner-section">
         <img
           src="/banners/Artboard 1 copy.png"
           alt="Turning study dreams into global realities - DS Overseas"
+          className="hero-banner-desktop"
         />
-      </picture>
+        <img
+          src="/banners/Artboard 1 copy 2.png"
+          alt="Turning study dreams into global realities - DS Overseas"
+          className="hero-banner-mobile"
+        />
+      </section>
 
       <section className="journey section">
         <div>

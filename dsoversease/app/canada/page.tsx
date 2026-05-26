@@ -13,16 +13,16 @@ export default function CanadaPage() {
 
       {/* Section 1: Hero Banner */}
       <section className="dso-visa-section">
-        <picture className="banner hero-banner">
-          <source
-            srcSet="/banners/canada m.png"
-            media="(max-width: 768px)"
-          />
-          <img
-            src="/banners/canada d.png"
-            alt="Study in Canada Banner"
-          />
-        </picture>
+        <img
+          src="/banners/canada d.png"
+          alt="Study in Canada Banner"
+          className="dso-visa-banner-desktop"
+        />
+        <img
+          src="/banners/canada m.png"
+          alt="Study in Canada Banner"
+          className="dso-visa-banner-mobile"
+        />
       </section>
 
       {/* Section 2: Top Universities in Canada */}
@@ -313,7 +313,7 @@ function CTASection() {
       <div className="cta-ring cta-ring-3"></div>
 
       <div className="cta-container">
-        <div className="cta-icon-wrap">✈️</div>
+        <div className="cta-icon-wrap">🚀</div>
 
         <h2 className="cta-headline">
           Your Future Abroad Starts With <span className="cta-highlight">One Step</span>
