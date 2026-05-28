@@ -14,7 +14,6 @@ const founderPills = [
   "Personalized Planning",
   "Visa & Documentation",
   "End-to-End Support",
-  "Direct Involvement",
 ];
 
 const testimonials = [

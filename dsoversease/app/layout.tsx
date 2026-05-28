@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import type { Viewport } from "next";
-import { DM_Sans, Geist, Geist_Mono, Montserrat, Playfair_Display, Poppins } from "next/font/google";
+import { DM_Sans, Geist, Geist_Mono, Inter, Montserrat, Playfair_Display, Poppins } from "next/font/google";
 import "./globals.css";
 import Footer from "./components/Footer";
 
@@ -37,6 +37,12 @@ const dmSans = DM_Sans({
   weight: ["300", "400", "500"],
 });
 
+const inter = Inter({
+  variable: "--font-inter",
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+});
+
 export const metadata: Metadata = {
   title: "DS Overseas - Home",
   description: "Study abroad, visa, coaching, and student support services from DS Overseas.",
@@ -64,7 +70,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} ${montserrat.variable} ${poppins.variable} ${playfair.variable} ${dmSans.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} ${montserrat.variable} ${poppins.variable} ${playfair.variable} ${dmSans.variable} ${inter.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
         {children}
