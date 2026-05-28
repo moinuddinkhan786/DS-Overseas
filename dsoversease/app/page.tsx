@@ -156,38 +156,39 @@ const reels = [
   {
     name: "Hiren Makwana",
     country: "UK",
-    video:
-      "https://lavender-narwhal-554808.hostingersite.com/wp-content/uploads/2026/03/Hiren-Makwana-03.mp4",
+    countryCode: "🇬🇧",
+    video: "https://lavender-narwhal-554808.hostingersite.com/wp-content/uploads/2026/03/Hiren-Makwana-03.mp4",
   },
   {
     name: "Success Story #2",
     country: "Australia",
-    video:
-      "https://lavender-narwhal-554808.hostingersite.com/wp-content/uploads/2026/03/1256470f0c5543659ad1f8fcf0f850bc.mp4",
+    countryCode: "🇦🇺",
+    video: "https://lavender-narwhal-554808.hostingersite.com/wp-content/uploads/2026/03/1256470f0c5543659ad1f8fcf0f850bc.mp4",
   },
   {
     name: "Success Story #1",
     country: "Canada",
-    video:
-      "https://lavender-narwhal-554808.hostingersite.com/wp-content/uploads/2026/03/485da6d2d7214f26835b74fa9191a40a.mp4",
+    countryCode: "🇨🇦",
+    video: "https://lavender-narwhal-554808.hostingersite.com/wp-content/uploads/2026/03/485da6d2d7214f26835b74fa9191a40a.mp4",
+    specialPosition: true, // Flag for special video positioning
   },
   {
     name: "Milan Patel",
     country: "USA",
-    video:
-      "https://lavender-narwhal-554808.hostingersite.com/wp-content/uploads/2026/03/Milan-Patel-.mp4",
+    countryCode: "🇺🇸",
+    video: "https://lavender-narwhal-554808.hostingersite.com/wp-content/uploads/2026/03/Milan-Patel-.mp4",
   },
   {
     name: "Chetan",
     country: "Canada",
-    video:
-      "https://lavender-narwhal-554808.hostingersite.com/wp-content/uploads/2026/03/Chetan.mp4",
+    countryCode: "🇨🇦",
+    video: "https://lavender-narwhal-554808.hostingersite.com/wp-content/uploads/2026/03/Chetan.mp4",
   },
   {
     name: "Prerakbhai Patel",
     country: "Australia",
-    video:
-      "https://lavender-narwhal-554808.hostingersite.com/wp-content/uploads/2026/03/Prerakbhai-Patel.mp4",
+    countryCode: "🇦🇺",
+    video: "https://lavender-narwhal-554808.hostingersite.com/wp-content/uploads/2026/03/Prerakbhai-Patel.mp4",
   },
 ];
 
@@ -237,6 +238,7 @@ export default function Home() {
   const [playingStates, setPlayingStates] = useState<boolean[]>(reels.map((_, i) => i === 0));
   const [mutedStates, setMutedStates] = useState<boolean[]>(reels.map(() => true));
   const [visibleCards, setVisibleCards] = useState(5); // Responsive number of visible cards
+  const [isPaused, setIsPaused] = useState(false); // Pause auto-slide on hover
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
   const trackRef = useRef<HTMLDivElement>(null);
 
@@ -367,23 +369,51 @@ export default function Home() {
   const centerOffset = Math.floor(visibleCards / 2);
   const centerReelIndex = ((slideIndex + centerOffset) % reels.length + reels.length) % reels.length;
 
+  // Auto-slide functionality (every 4 seconds)
+  useEffect(() => {
+    if (isPaused) return;
+
+    const autoSlideTimer = setInterval(() => {
+      if (!isSliding) {
+        setIsSliding(true);
+        setSlideIndex(prev => prev + 1);
+        setTimeout(() => setIsSliding(false), 500);
+      }
+    }, 4000);
+
+    return () => clearInterval(autoSlideTimer);
+  }, [isSliding, isPaused]);
+
   // Auto-play ONLY the center video, pause and mute all others
   useEffect(() => {
-    const playCenter = () => {
-      videoRefs.current.forEach((video, index) => {
+    const playCenter = async () => {
+      for (let index = 0; index < videoRefs.current.length; index++) {
+        const video = videoRefs.current[index];
         if (video) {
           if (index === centerReelIndex) {
             video.muted = true;
-            // Ensure video is ready to play
-            if (video.readyState >= 2) {
-              video.play().catch(() => {});
-            } else {
+            // Force load the video
+            video.load();
+
+            try {
               // Wait for video to be ready
-              video.addEventListener('loadeddata', () => {
-                video.play().catch(() => {});
-              }, { once: true });
-              // Also try loading explicitly
-              video.load();
+              if (video.readyState < 2) {
+                await new Promise((resolve) => {
+                  video.addEventListener('loadeddata', resolve, { once: true });
+                  // Timeout fallback
+                  setTimeout(resolve, 2000);
+                });
+              }
+
+              // Try to play
+              await video.play();
+              setPlayingStates(prev => {
+                const newStates = [...prev];
+                newStates[index] = true;
+                return newStates;
+              });
+            } catch {
+              // If autoplay fails, user will need to click play button
             }
           } else {
             video.pause();
@@ -391,29 +421,18 @@ export default function Home() {
             video.currentTime = 0;
           }
         }
-      });
-
-      setPlayingStates(prev => {
-        const newStates = prev.map(() => false);
-        newStates[centerReelIndex] = true;
-        return newStates;
-      });
+      }
 
       setMutedStates(prev => prev.map(() => true));
     };
 
-    // Run with delays to ensure videos are loaded
-    playCenter();
-    const timeout1 = setTimeout(playCenter, 100);
-    const timeout2 = setTimeout(playCenter, 300);
-    const timeout3 = setTimeout(playCenter, 600);
-    const timeout4 = setTimeout(playCenter, 1000);
+    // Small delay to ensure DOM is ready
+    const timeout = setTimeout(() => {
+      playCenter();
+    }, 100);
 
     return () => {
-      clearTimeout(timeout1);
-      clearTimeout(timeout2);
-      clearTimeout(timeout3);
-      clearTimeout(timeout4);
+      clearTimeout(timeout);
     };
   }, [centerReelIndex]);
 
@@ -443,14 +462,31 @@ export default function Home() {
     if (video) {
       if (playingStates[index]) {
         video.pause();
+        setPlayingStates(prev => {
+          const newStates = [...prev];
+          newStates[index] = false;
+          return newStates;
+        });
       } else {
-        video.play().catch(() => {});
+        // Ensure video is loaded before playing
+        if (video.readyState < 2) {
+          video.load();
+        }
+        video.play()
+          .then(() => {
+            setPlayingStates(prev => {
+              const newStates = [...prev];
+              newStates[index] = true;
+              return newStates;
+            });
+          })
+          .catch(() => {
+            // Try one more time after a short delay
+            setTimeout(() => {
+              video.play().catch(() => {});
+            }, 100);
+          });
       }
-      setPlayingStates(prev => {
-        const newStates = [...prev];
-        newStates[index] = !prev[index];
-        return newStates;
-      });
     }
   };
 
@@ -672,19 +708,28 @@ export default function Home() {
 
       <section className="reels">
         <div className="section-header dark">
-          <span>Real Stories · Real Results</span>
+          <span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 16 16">
+              <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10h14V4h-3.5zM2 5h12v8H2V5z"/>
+            </svg>
+            Real Stories · Real Results
+          </span>
           <h2>DS Overseas <span className="accent">Students</span> Success Stories</h2>
           <p>Our favorite milestone isn&apos;t a number — it&apos;s seeing a student finally stand where they once only dreamed of being.</p>
         </div>
-        <div className="reels-wrapper">
+        <div
+          className="reels-wrapper"
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+        >
           <button
             className="reel-nav-btn reel-nav-prev"
             type="button"
             onClick={handlePrev}
             aria-label="Previous video"
           >
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-              <polyline points="15 19 8 12 15 5" />
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7"/>
             </svg>
           </button>
           <div className="reels-track-outer">
@@ -720,17 +765,21 @@ export default function Home() {
                       }}
                       src={reel.video}
                       muted
-                      autoPlay={isCenter}
                       loop
                       playsInline
-                      preload="auto"
-                      style={{ WebkitTransform: 'translateZ(0)' }}
-                      onLoadedData={(e) => {
-                        // Ensure video is visible and playing if it's the center
-                        if (isCenter) {
-                          const video = e.currentTarget;
+                      preload="metadata"
+                      style={{
+                        WebkitTransform: 'translateZ(0)',
+                        objectFit: 'cover',
+                        objectPosition: reel.specialPosition ? 'center 20%' : 'center center'
+                      }}
+                      onLoadedData={(e: React.SyntheticEvent<HTMLVideoElement>) => {
+                        const video = e.currentTarget;
+                        if (originalIndex === centerReelIndex) {
                           video.muted = true;
-                          video.play().catch(() => {});
+                          video.play().catch(() => {
+                            // Silent fail - user can click play button
+                          });
                         }
                       }}
                     />
@@ -744,12 +793,12 @@ export default function Home() {
                       aria-label={mutedStates[originalIndex] ? "Unmute" : "Mute"}
                     >
                       {mutedStates[originalIndex] ? (
-                        <svg viewBox="0 0 20 20" fill="currentColor">
-                          <path fillRule="evenodd" d="M9.383 3.076A1 1 0 0110 4v12a1 1 0 01-1.617.784L4.86 13H2a1 1 0 01-1-1V8a1 1 0 011-1h2.86l3.523-3.784a1 1 0 011-.14zM12.293 7.293a1 1 0 011.414 0L15 8.586l1.293-1.293a1 1 0 111.414 1.414L16.414 10l1.293 1.293a1 1 0 01-1.414 1.414L15 11.414l-1.293 1.293a1 1 0 01-1.414-1.414L13.586 10l-1.293-1.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M9.383 3.076A1 1 0 0110 4v12a1 1 0 01-1.617.784L4.86 13H2a1 1 0 01-1-1V8a1 1 0 011-1h2.86l3.523-3.784a1 1 0 011-.14zM12.293 7.293a1 1 0 011.414 0L15 8.586l1.293-1.293a1 1 0 111.414 1.414L16.414 10l1.293 1.293a1 1 0 01-1.414 1.414L15 11.414l-1.293 1.293a1 1 0 01-1.414-1.414L13.586 10l-1.293-1.293a1 1 0 010-1.414z" clipRule="evenodd"/>
                         </svg>
                       ) : (
-                        <svg viewBox="0 0 20 20" fill="currentColor">
-                          <path d="M9.383 3.076A1 1 0 0110 4v12a1 1 0 01-1.617.784L4.86 13H2a1 1 0 01-1-1V8a1 1 0 011-1h2.86l3.523-3.784a1 1 0 011-.14zM14.657 2.929a1 1 0 011.414 0A9.972 9.972 0 0119 10a9.972 9.972 0 01-2.929 7.071 1 1 0 01-1.414-1.414A7.971 7.971 0 0017 10c0-2.21-.894-4.208-2.343-5.657a1 1 0 010-1.414zm-2.829 2.828a1 1 0 011.415 0A5.983 5.983 0 0115 10a5.984 5.984 0 01-1.757 4.243 1 1 0 01-1.415-1.415A3.984 3.984 0 0013 10a3.983 3.983 0 00-1.172-2.828 1 1 0 010-1.415z" />
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                          <path d="M9.383 3.076A1 1 0 0110 4v12a1 1 0 01-1.617.784L4.86 13H2a1 1 0 01-1-1V8a1 1 0 011-1h2.86l3.523-3.784a1 1 0 011-.14zM14.657 2.929a1 1 0 011.414 0A9.972 9.972 0 0119 10a9.972 9.972 0 01-2.929 7.071 1 1 0 01-1.414-1.414A7.971 7.971 0 0017 10c0-2.21-.894-4.208-2.343-5.657a1 1 0 010-1.414zm-2.829 2.828a1 1 0 011.415 0A5.983 5.983 0 0115 10a5.984 5.984 0 01-1.757 4.243 1 1 0 01-1.415-1.415A3.984 3.984 0 0013 10a3.983 3.983 0 00-1.172-2.828 1 1 0 010-1.415z"/>
                         </svg>
                       )}
                     </button>
@@ -762,12 +811,12 @@ export default function Home() {
                       aria-label={playingStates[originalIndex] ? "Pause" : "Play"}
                     >
                       {playingStates[originalIndex] ? (
-                        <svg viewBox="0 0 20 20" fill="currentColor">
-                          <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zM7 8a1 1 0 012 0v4a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v4a1 1 0 102 0V8a1 1 0 00-1-1z" clipRule="evenodd" />
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zM7 8a1 1 0 012 0v4a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v4a1 1 0 102 0V8a1 1 0 00-1-1z" clipRule="evenodd"/>
                         </svg>
                       ) : (
-                        <svg viewBox="0 0 20 20" fill="currentColor">
-                          <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd" />
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd"/>
                         </svg>
                       )}
                     </button>
@@ -775,7 +824,7 @@ export default function Home() {
                     {/* Country badge and label - bottom */}
                     <div className="reel-info">
                       <span className="reel-country-badge">
-                        {reel.country === "Canada" ? "🇨🇦" : reel.country === "Australia" ? "🇦🇺" : reel.country === "UK" ? "🇬🇧" : reel.country === "USA" ? "🇺🇸" : "🌍"} {reel.country.toUpperCase()}
+                        {reel.countryCode || "🌍"} {reel.country.toUpperCase()}
                       </span>
                       <strong className="reel-name">{reel.name}</strong>
                       <small className="reel-subtitle">DS Overseas Student</small>
@@ -796,8 +845,8 @@ export default function Home() {
             onClick={handleNext}
             aria-label="Next video"
           >
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-              <polyline points="9 5 16 12 9 19" />
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7"/>
             </svg>
           </button>
         </div>

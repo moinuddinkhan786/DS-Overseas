@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Format Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        .status {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .video-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .video-card video {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            background: #000;
+        }
+        .video-info {
+            padding: 15px;
+        }
+        .video-name {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .status-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        .status-loading {
+            background: #ffc107;
+            color: #000;
+        }
+        .status-success {
+            background: #4caf50;
+            color: white;
+        }
+        .status-error {
+            background: #f44336;
+            color: white;
+        }
+        .error-details {
+            margin-top: 10px;
+            padding: 10px;
+            background: #ffebee;
+            border-radius: 4px;
+            font-size: 12px;
+            color: #c62828;
+        }
+        .instructions {
+            background: #e3f2fd;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #2196f3;
+            margin-bottom: 20px;
+        }
+        .instructions h3 {
+            margin-top: 0;
+            color: #1976d2;
+        }
+    </style>
+</head>
+<body>
+    <h1>🎬 Video Format Compatibility Test</h1>
+
+    <div class="instructions">
+        <h3>Instructions:</h3>
+        <p><strong>Purpose:</strong> This page tests if your videos are in web-compatible format.</p>
+        <p><strong>✅ Success:</strong> Videos should load and play automatically</p>
+        <p><strong>❌ Error:</strong> If videos show errors, they need H.264 conversion</p>
+        <p><strong>Solution:</strong> See <code>VIDEO-SETUP-COMPLETE.md</code> for conversion guide</p>
+    </div>
+
+    <div class="status">
+        <h3>Overall Status</h3>
+        <div id="overall-status">Testing videos...</div>
+    </div>
+
+    <div class="video-grid">
+        <div class="video-card">
+            <video id="video-1" muted loop playsinline preload="metadata">
+                <source src="/videos/hiren-makwana.mp4" type="video/mp4">
+            </video>
+            <div class="video-info">
+                <div class="video-name">Hiren Makwana (UK)</div>
+                <div id="status-1" class="status-badge status-loading">Loading...</div>
+                <div id="error-1" class="error-details" style="display:none;"></div>
+            </div>
+        </div>
+
+        <div class="video-card">
+            <video id="video-2" muted loop playsinline preload="metadata">
+                <source src="/videos/success-story-2.mp4" type="video/mp4">
+            </video>
+            <div class="video-info">
+                <div class="video-name">Success Story #2 (Australia)</div>
+                <div id="status-2" class="status-badge status-loading">Loading...</div>
+                <div id="error-2" class="error-details" style="display:none;"></div>
+            </div>
+        </div>
+
+        <div class="video-card">
+            <video id="video-3" muted loop playsinline preload="metadata">
+                <source src="/videos/success-story-1.mp4" type="video/mp4">
+            </video>
+            <div class="video-info">
+                <div class="video-name">Success Story #1 (Canada)</div>
+                <div id="status-3" class="status-badge status-loading">Loading...</div>
+                <div id="error-3" class="error-details" style="display:none;"></div>
+            </div>
+        </div>
+
+        <div class="video-card">
+            <video id="video-4" muted loop playsinline preload="metadata">
+                <source src="/videos/milan-patel.mp4" type="video/mp4">
+            </video>
+            <div class="video-info">
+                <div class="video-name">Milan Patel (USA)</div>
+                <div id="status-4" class="status-badge status-loading">Loading...</div>
+                <div id="error-4" class="error-details" style="display:none;"></div>
+            </div>
+        </div>
+
+        <div class="video-card">
+            <video id="video-5" muted loop playsinline preload="metadata">
+                <source src="/videos/chetan.mp4" type="video/mp4">
+            </video>
+            <div class="video-info">
+                <div class="video-name">Chetan (Canada)</div>
+                <div id="status-5" class="status-badge status-loading">Loading...</div>
+                <div id="error-5" class="error-details" style="display:none;"></div>
+            </div>
+        </div>
+
+        <div class="video-card">
+            <video id="video-6" muted loop playsinline preload="metadata">
+                <source src="/videos/prerakbhai-patel.mp4" type="video/mp4">
+            </video>
+            <div class="video-info">
+                <div class="video-name">Prerakbhai Patel (Australia)</div>
+                <div id="status-6" class="status-badge status-loading">Loading...</div>
+                <div id="error-6" class="error-details" style="display:none;"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const videos = [1, 2, 3, 4, 5, 6];
+        const results = { success: 0, error: 0, loading: 6 };
+
+        const errorMessages = {
+            1: 'MEDIA_ERR_ABORTED - Loading aborted by user',
+            2: 'MEDIA_ERR_NETWORK - Network error occurred',
+            3: 'MEDIA_ERR_DECODE - Decoding error (corrupted file)',
+            4: 'MEDIA_ERR_SRC_NOT_SUPPORTED - Format not supported (needs H.264 conversion)'
+        };
+
+        function updateOverallStatus() {
+            const overall = document.getElementById('overall-status');
+            if (results.loading > 0) {
+                overall.innerHTML = `⏳ Testing... (${results.success} success, ${results.error} errors, ${results.loading} loading)`;
+            } else if (results.error === 0) {
+                overall.innerHTML = `✅ <strong>All videos are working!</strong> All ${results.success} videos loaded successfully.`;
+                overall.style.color = '#4caf50';
+            } else {
+                overall.innerHTML = `❌ <strong>${results.error} video(s) failed to load.</strong> These videos need to be converted to H.264 format. See VIDEO-SETUP-COMPLETE.md for instructions.`;
+                overall.style.color = '#f44336';
+            }
+        }
+
+        videos.forEach(i => {
+            const video = document.getElementById(`video-${i}`);
+            const status = document.getElementById(`status-${i}`);
+            const errorDiv = document.getElementById(`error-${i}`);
+
+            video.addEventListener('loadeddata', () => {
+                results.loading--;
+                results.success++;
+                status.textContent = '✅ Working';
+                status.className = 'status-badge status-success';
+                updateOverallStatus();
+                // Try to play
+                video.play().catch(() => {
+                    // Autoplay prevented, but video loaded successfully
+                });
+            });
+
+            video.addEventListener('error', () => {
+                results.loading--;
+                results.error++;
+                const errorCode = video.error ? video.error.code : 0;
+                status.textContent = '❌ Failed';
+                status.className = 'status-badge status-error';
+                errorDiv.style.display = 'block';
+                errorDiv.innerHTML = `
+                    <strong>Error Code ${errorCode}:</strong><br>
+                    ${errorMessages[errorCode] || 'Unknown error'}<br>
+                    <strong>Solution:</strong> Convert video to H.264 format
+                `;
+                updateOverallStatus();
+            });
+
+            // Timeout after 10 seconds
+            setTimeout(() => {
+                if (video.readyState < 2) {
+                    results.loading--;
+                    results.error++;
+                    status.textContent = '⏱️ Timeout';
+                    status.className = 'status-badge status-error';
+                    errorDiv.style.display = 'block';
+                    errorDiv.textContent = 'Video failed to load within 10 seconds. Check file format or network connection.';
+                    updateOverallStatus();
+                }
+            }, 10000);
+        });
+
+        // Initial status update
+        updateOverallStatus();
+    </script>
+</body>
+</html>

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import type { Viewport } from "next";
 import { DM_Sans, Geist, Geist_Mono, Montserrat, Playfair_Display, Poppins } from "next/font/google";
 import "./globals.css";
 import Footer from "./components/Footer";
@@ -46,6 +47,13 @@ export const metadata: Metadata = {
     ],
     apple: "/logo.png",
   },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  userScalable: true,
 };
 
 export default function RootLayout({
