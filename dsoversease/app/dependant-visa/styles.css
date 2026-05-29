@@ -2,6 +2,13 @@
    DEPENDANT VISA PAGE STYLES
    ======================================== */
 
+/* Flag Icons Override */
+.fi {
+  width: 50% !important;
+  height: 46% !important;
+  line-height: 5em!important;
+}
+
 .dependant-visa-page {
   position: relative;
   min-height: 100vh;
@@ -197,8 +204,20 @@
 }
 
 .dest-flag {
-  font-size: 48px;
-  line-height: 1;
+  display: inline-block;
+  width: 140px;
+  height: 100px;
+  margin-bottom: 20px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 0;
+  background-color: #f0f6ff;
+  border: 2px solid #d6e4f7;
+  border-radius: 14px;
+  box-shadow: 0 4px 12px rgba(0, 81, 181, 0.08);
+  transition: transform 0.3s, box-shadow 0.3s;
+  overflow: hidden;
 }
 
 .dest-name {
@@ -734,7 +753,8 @@
   }
 
   .dso-dest-slide .dest-flag {
-    font-size: 56px;
+    width: 120px;
+    height: 88px;
   }
 
   .dso-dest-slide .dest-name {

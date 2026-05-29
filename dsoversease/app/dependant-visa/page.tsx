@@ -1,12 +1,21 @@
 "use client";
 
 /* eslint-disable @next/next/no-img-element */
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./styles.css";
 import Header from "../components/Header";
 
 
 export default function DependantVisaPage() {
+  useEffect(() => {
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = 'https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.2.3/css/flag-icons.min.css';
+    document.head.appendChild(link);
+    return () => {
+      document.head.removeChild(link);
+    };
+  }, []);
   return (
     <main className="dependant-visa-page">
       <Header />
@@ -57,11 +66,11 @@ function DependantVisaDestinations() {
   const TOTAL = 5;
 
   const destinations = [
-    { flag: "🇨🇦", name: "Canada" },
-    { flag: "🇬🇧", name: "United Kingdom" },
-    { flag: "🇺🇸", name: "USA" },
-    { flag: "🇦🇺", name: "Australia" },
-    { flag: "🇳🇿", name: "New Zealand" },
+    { flagCode: "ca", name: "Canada" },
+    { flagCode: "gb", name: "United Kingdom" },
+    { flagCode: "us", name: "USA" },
+    { flagCode: "au", name: "Australia" },
+    { flagCode: "nz", name: "New Zealand" },
   ];
 
   const goTo = (idx: number) => {
@@ -105,7 +114,7 @@ function DependantVisaDestinations() {
         <div className="dso-dest-cards">
           {destinations.map((dest, index) => (
             <div className={`dso-dest-card ${index === 2 ? "active" : ""}`} key={index}>
-              <span className="dest-flag">{dest.flag}</span>
+              <span className={`dest-flag fi fi-${dest.flagCode}`}></span>
               <span className="dest-name">{dest.name}</span>
             </div>
           ))}
@@ -122,7 +131,7 @@ function DependantVisaDestinations() {
               {destinations.map((dest, index) => (
                 <div className="dso-dest-slide" key={index}>
                   <div className="dso-dest-card">
-                    <span className="dest-flag">{dest.flag}</span>
+                    <span className={`dest-flag fi fi-${dest.flagCode}`}></span>
                     <span className="dest-name">{dest.name}</span>
                   </div>
                 </div>

@@ -1,12 +1,21 @@
 "use client";
 
 /* eslint-disable @next/next/no-img-element */
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./styles.css";
 import Header from "../components/Header";
 
 
 export default function VisitorVisaPage() {
+  useEffect(() => {
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = 'https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.2.3/css/flag-icons.min.css';
+    document.head.appendChild(link);
+    return () => {
+      document.head.removeChild(link);
+    };
+  }, []);
   return (
     <main className="visitor-visa-page">
       <Header />
@@ -57,11 +66,11 @@ function VisitorVisaServices() {
   const TOTAL = 5;
 
   const destinations = [
-    { flag: "🇨🇦", name: "Canada" },
-    { flag: "🇬🇧", name: "United Kingdom" },
-    { flag: "🇺🇸", name: "USA" },
-    { flag: "🇦🇺", name: "Australia" },
-    { flag: "🇳🇿", name: "New Zealand" },
+    { flagCode: "ca", name: "Canada" },
+    { flagCode: "gb", name: "United Kingdom" },
+    { flagCode: "us", name: "USA" },
+    { flagCode: "au", name: "Australia" },
+    { flagCode: "nz", name: "New Zealand" },
   ];
 
   const goTo = (idx: number) => {
@@ -107,7 +116,7 @@ function VisitorVisaServices() {
           <div className="dest-grid">
             {destinations.map((dest, index) => (
               <div className="dest-card" key={index}>
-                <div className="dest-flag">{dest.flag}</div>
+                <span className={`dest-flag fi fi-${dest.flagCode}`}></span>
                 <div className="dest-name">{dest.name}</div>
               </div>
             ))}
@@ -124,7 +133,7 @@ function VisitorVisaServices() {
                 {destinations.map((dest, index) => (
                   <div className="dest-slide" key={index}>
                     <div className="dest-card">
-                      <div className="dest-flag">{dest.flag}</div>
+                      <span className={`dest-flag fi fi-${dest.flagCode}`}></span>
                       <div className="dest-name">{dest.name}</div>
                     </div>
                   </div>

@@ -204,11 +204,6 @@ function CostOfLiving() {
       <div className="col-blob col-blob-2"></div>
 
       <div className="col-container">
-        <div className="col-label">
-          <span className="col-label-dot"></span>
-          Canada
-        </div>
-
         <div className="col-fire">🔥 &nbsp; Plan Your Budget Smart</div>
 
         <h2 className="col-headline">

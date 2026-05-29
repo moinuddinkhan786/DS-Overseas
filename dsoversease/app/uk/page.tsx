@@ -243,10 +243,6 @@ function CostOfLiving() {
       <div className="col-container">
         <div className="col-header">
           <div className="col-badges">
-            <div className="col-badge-main">
-              <span className="col-badge-dot"></span>
-              UK
-            </div>
             <div className="col-badge-fire">🔥 &nbsp; Plan Your Budget Smart</div>
           </div>
 
@@ -330,7 +326,7 @@ function StepsToStudy() {
   const steps = [
     { num: "01", icon: "🎯", title: "Choose the Right Course", desc: "Select a program based on your goals" },
     { num: "02", icon: "📄", title: "Secure Your Admission And CAS Letter", desc: "Apply and get your offer letter" },
-    { num: "03", icon: "📋", title: "I-20 Certificate of Eligibility for Nonimmigrant Student Status", desc: "Obtain your I-20 form issued by your institution — required to apply for your student visa and prove enrollment eligibility", isHighlight: true },
+    { num: "03", icon: "📋", title: "I-20 Certificate of Eligibility for Nonimmigrant Student Status", desc: "Obtain your I-20 form issued by your institution — required to apply for your student visa and prove enrollment eligibility" },
     { num: "04", icon: "📝", title: "Build Your Profile", desc: "Prepare SOP/Financial & documents" },
     { num: "05", icon: "🛂", title: "Apply for Your Visa", desc: "Complete your student visa process" },
     { num: "06", icon: "✈️", title: "Start Your Journey", desc: "Fly and begin your UK experience" },
@@ -359,7 +355,7 @@ function StepsToStudy() {
         {/* Timeline */}
         <div className="steps-timeline">
           {steps.map((step) => (
-            <div className={`step-row ${step.isHighlight ? "step-highlight" : ""}`} key={step.num}>
+            <div className="step-row" key={step.num}>
               <div className="step-circle">
                 <span className="step-num">{step.num}</span>
               </div>

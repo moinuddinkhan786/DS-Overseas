@@ -243,10 +243,6 @@ function CostOfLiving() {
       <div className="col-container">
         <div className="col-header">
           <div className="col-badges">
-            <div className="col-badge-main">
-              <span className="col-badge-dot"></span>
-              Australia
-            </div>
             <div className="col-badge-fire">🔥 &nbsp; Plan Your Budget Smart</div>
           </div>
 

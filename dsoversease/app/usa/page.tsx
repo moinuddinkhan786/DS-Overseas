@@ -199,10 +199,6 @@ function CostOfLiving() {
       <div className="col-container">
         <div className="col-header">
           <div className="col-badges">
-            <div className="col-badge-main">
-              <span className="col-badge-dot"></span>
-              USA
-            </div>
             <div className="col-badge-fire">🔥 &nbsp; Plan Your Budget Smart</div>
           </div>
 
@@ -307,7 +303,7 @@ function StepsToStudy() {
   const steps = [
     { num: "01", icon: "🎯", title: "Choose the Right Course", desc: "Select a program aligned with your career goals" },
     { num: "02", icon: "📄", title: "Secure Your Admission", desc: "Apply and receive your offer letter" },
-    { num: "03", icon: "📋", title: "Obtain Your I-20 Form", desc: "Receive your Certificate of Eligibility for Nonimmigrant Student Status (Form I-20) from your university — required to apply for an F-1 student visa", isHighlight: true },
+    { num: "03", icon: "📋", title: "Obtain Your I-20 Form", desc: "Receive your Certificate of Eligibility for Nonimmigrant Student Status (Form I-20) from your university — required to apply for an F-1 student visa" },
     { num: "04", icon: "📝", title: "Build a Strong Profile", desc: "Prepare SOP, IELTS/Financial & documents" },
     { num: "05", icon: "🛂", title: "Apply for Your Visa", desc: "Complete your student visa process" },
     { num: "06", icon: "✈️", title: "Start Your Journey", desc: "Fly and begin your USA experience" },
@@ -337,10 +333,10 @@ function StepsToStudy() {
         <div className="steps-timeline">
           {steps.map((step) => (
             <div className="step-row" key={step.num}>
-              <div className={`step-circle ${step.isHighlight ? "i20-circle" : ""}`}>
+              <div className="step-circle">
                 <span className="step-num">{step.num}</span>
               </div>
-              <div className={`step-card ${step.isHighlight ? "i20-highlight" : ""}`}>
+              <div className="step-card">
                 <div className="step-icon">{step.icon}</div>
                 <div className="step-text">
                   <div className="step-title">{step.title}</div>

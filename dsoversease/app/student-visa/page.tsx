@@ -1,12 +1,24 @@
 "use client";
 
 /* eslint-disable @next/next/no-img-element */
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./styles.css";
 import Header from "../components/Header";
 
 
 export default function StudentVisaPage() {
+  useEffect(() => {
+    // Load flag-icons CSS
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = 'https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.2.3/css/flag-icons.min.css';
+    document.head.appendChild(link);
+
+    return () => {
+      document.head.removeChild(link);
+    };
+  }, []);
+
   return (
     <main className="student-visa-page">
       <Header />
@@ -227,27 +239,27 @@ function StudyDestinations() {
 
   const destinations = [
     {
-      flag: "🇨🇦",
+      flagCode: "ca",
       name: "Canada",
       tag: "Study. Work. Settle.\nWorld-class education with strong post-study pathways.",
     },
     {
-      flag: "🇬🇧",
+      flagCode: "gb",
       name: "United Kingdom",
       tag: "1-Year Master's. Global Exposure.\nFast-track degrees with excellent career prospects.",
     },
     {
-      flag: "🇳🇿",
+      flagCode: "nz",
       name: "New Zealand",
       tag: "Peaceful Country. Powerful Degrees.\nIndustry-focused education in a safe environment.",
     },
     {
-      flag: "🇺🇸",
+      flagCode: "us",
       name: "USA",
       tag: "Dream Big. Study Bigger.\nTop-ranked universities with world-leading research opportunities.",
     },
     {
-      flag: "🇦🇺",
+      flagCode: "au",
       name: "Australia",
       tag: "Live, Learn & Thrive.\nHigh-quality education with outstanding post-study work rights.",
     },
@@ -288,7 +300,7 @@ function StudyDestinations() {
         <div className="dso-dest-grid">
           {destinations.map((dest, index) => (
             <div className="dso-dest-card" key={index}>
-              <span className="dso-dest-flag">{dest.flag}</span>
+              <span className={`dso-dest-flag fi fi-${dest.flagCode}`}></span>
               <div className="dso-dest-name">{dest.name}</div>
               <div className="dso-dest-line"></div>
               <div className="dso-dest-tag">{dest.tag.split('\n').map((line, i) => (
@@ -309,7 +321,7 @@ function StudyDestinations() {
               {destinations.map((dest, index) => (
                 <div className="dso-mob-slide" key={index}>
                   <div className="dso-dest-card">
-                    <span className="dso-dest-flag">{dest.flag}</span>
+                    <span className={`dso-dest-flag fi fi-${dest.flagCode}`}></span>
                     <div className="dso-dest-name">{dest.name}</div>
                     <div className="dso-dest-line"></div>
                     <div className="dso-dest-tag">{dest.tag.split('\n').map((line, i) => (

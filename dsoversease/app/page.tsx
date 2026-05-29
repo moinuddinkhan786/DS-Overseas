@@ -271,20 +271,11 @@ export default function Home() {
           <input className="full" name="phone" placeholder="Phone No" type="tel" required disabled={formLoading} />
           <select className="full" name="destination" defaultValue="" required disabled={formLoading}>
             <option value="" disabled>Select Preferred Study Destination</option>
-            <option value="USA">USA</option>
             <option value="Canada">Canada</option>
-            <option value="Australia">Australia</option>
+            <option value="USA">USA</option>
             <option value="United Kingdom">United Kingdom</option>
+            <option value="Australia">Australia</option>
             <option value="New Zealand">New Zealand</option>
-            <option value="Germany">Germany</option>
-            <option value="Ireland">Ireland</option>
-            <option value="France">France</option>
-            <option value="Netherlands">Netherlands</option>
-            <option value="Singapore">Singapore</option>
-            <option value="Dubai">Dubai</option>
-            <option value="Sweden">Sweden</option>
-            <option value="Switzerland">Switzerland</option>
-            <option value="Other">Other</option>
           </select>
           <button className="full" type="submit" disabled={formLoading}>
             {formLoading ? "Submitting..." : "Submit"}
