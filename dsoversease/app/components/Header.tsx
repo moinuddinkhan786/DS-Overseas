@@ -154,12 +154,6 @@ export default function Header() {
 
           {/* Right icons */}
           <div className="ds-header-actions">
-            <a href="#" aria-label="Search" className="ds-header-icon-btn">
-              <svg viewBox="0 0 24 24" fill="none" width="21" height="21">
-                <circle cx="11" cy="11" r="7" stroke="currentColor" strokeWidth="2.2" />
-                <path d="M16.5 16.5L21 21" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" />
-              </svg>
-            </a>
             <button
               className="ds-header-burger"
               aria-label="Menu"
