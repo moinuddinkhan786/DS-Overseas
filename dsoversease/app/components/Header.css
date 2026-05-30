@@ -16,7 +16,7 @@
 .ds-header-bar {
   position: relative;
   z-index: 1;
-  max-width: 1300px;
+  max-width: 1150px;
   margin: 0 auto;
   height: 180px;
   background: linear-gradient(180deg, #1257d6 0%, #0a3ca8 100%);
