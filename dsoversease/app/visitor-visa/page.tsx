@@ -312,25 +312,35 @@ function CTASection() {
       <div className="cta-blob cta-blob-1"></div>
       <div className="cta-blob cta-blob-2"></div>
 
-      <div className="cta-inner">
-        <h2 className="cta-headline">
-          Plan Your Visit the <span className="cta-blue">Right Way</span>
-        </h2>
+      <div className="cta-container">
+        <div className="cta-image-wrapper">
+          <img
+            src="https://lavender-narwhal-554808.hostingersite.com/wp-content/uploads/2026/05/consultation-illustration.png"
+            alt="Visa Consultation"
+            className="cta-image"
+          />
+        </div>
 
-        <p className="cta-subtext">
-          Get the right guidance and avoid unnecessary delays or confusion.
-        </p>
+        <div className="cta-content">
+          <h2 className="cta-headline">
+            Plan Your Visit the <span className="cta-blue">Right Way</span>
+          </h2>
 
-        <div className="cta-btn-wrap">
-          <a href="/contact-us" className="cta-btn">
-            Book Free Consultation
-            <span className="cta-arrow">
-              <svg viewBox="0 0 24 24">
-                <line x1="5" y1="12" x2="19" y2="12" />
-                <polyline points="12 5 19 12 12 19" />
-              </svg>
-            </span>
-          </a>
+          <p className="cta-subtext">
+            Get the right guidance and avoid unnecessary delays or confusion.
+          </p>
+
+          <div className="cta-btn-wrap">
+            <a href="/contact-us" className="cta-btn">
+              Book Free Consultation
+              <span className="cta-arrow">
+                <svg viewBox="0 0 24 24">
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                  <polyline points="12 5 19 12 12 19" />
+                </svg>
+              </span>
+            </a>
+          </div>
         </div>
       </div>
     </section>
