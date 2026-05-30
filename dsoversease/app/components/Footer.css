@@ -34,12 +34,18 @@
 /* Logo and Description */
 .ds-footer-logo {
   margin-bottom: 20px;
+  background: #ffffff;
+  padding: 12px 20px;
+  border-radius: 12px;
+  display: inline-block;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .ds-footer-logo-img {
   height: 50px;
   width: auto;
   object-fit: contain;
+  display: block;
 }
 
 .ds-footer-description {
@@ -271,6 +277,10 @@
     border-right: none !important;
     padding-left: 0 !important;
     padding-right: 0 !important;
+  }
+
+  .ds-footer-logo {
+    padding: 10px 16px;
   }
 
   .ds-footer-logo-img {
