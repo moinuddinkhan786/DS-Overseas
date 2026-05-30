@@ -322,7 +322,7 @@ export default function ReelsSection() {
           gap: 8px;
           background: rgba(245,166,35,.12);
           border: 1px solid rgba(245,166,35,.35);
-          color: var(--accent);
+          color: white;
           font-size: 12px;
           font-weight: 600;
           letter-spacing: 2px;
@@ -334,7 +334,7 @@ export default function ReelsSection() {
         .ds-reels-header h2 {
           font-size: clamp(18px, 2.8vw, 38px);
           font-weight: 800;
-          color: var(--white);
+          color: white;
           line-height: 1.15;
           margin-bottom: 14px;
           white-space: nowrap;
