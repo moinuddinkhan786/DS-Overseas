@@ -15,7 +15,7 @@ export default function Footer() {
           <div className="ds-footer-column">
             <div className="ds-footer-logo">
               <img
-                src="/logo.png"
+                src="/footer-logo.png"
                 alt="DS Overseas Education Consultants"
                 className="ds-footer-logo-img"
               />
