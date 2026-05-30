@@ -339,10 +339,10 @@ export default function ReelsSection() {
           margin-bottom: 14px;
           white-space: nowrap;
         }
-        .ds-reels-header h2 span { color: var(--accent); }
+        .ds-reels-header h2 span { color: white; }
         .ds-reels-header p {
           font-family: 'Inter', sans-serif;
-          color: var(--gray-400);
+          color: white;
           font-size: 16px;
           max-width: 520px;
           margin: 0 auto;

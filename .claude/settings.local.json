@@ -14,7 +14,10 @@
       "Bash(dir:*)",
       "Bash(cat:*)",
       "Bash(findstr:*)",
-      "Bash(taskkill:*)"
+      "Bash(taskkill:*)",
+      "Bash([ ! -d \"node_modules\" ])",
+      "Bash(powershell:*)",
+      "Bash(ffmpeg:*)"
     ]
   }
 }
