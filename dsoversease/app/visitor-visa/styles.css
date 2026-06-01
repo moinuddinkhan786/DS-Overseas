@@ -157,10 +157,10 @@
 }
 
 .dest-block-title {
-  font-size: 15px;
-  font-weight: 700;
+  font-size: clamp(1.6rem, 3vw, 2.8rem);
+  font-weight: 800;
   color: #ffffff;
-  letter-spacing: 0.07em;
+  letter-spacing: 0.02em;
   text-transform: uppercase;
   font-family: 'Montserrat', sans-serif;
 }

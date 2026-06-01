@@ -63,11 +63,6 @@ export default function Header() {
                 <circle cx="17.2" cy="6.8" r="1.3" fill="#fff" />
               </svg>
             </a>
-            <a href="#" aria-label="X">
-              <svg viewBox="0 0 24 24" fill="#fff" width="16" height="16">
-                <path d="M17.5 3h3l-6.6 7.5L21.7 21h-5.9l-4.3-5.6L6.5 21H3.4l7-8L2.6 3h6l3.9 5.2L17.5 3zm-1 16h1.7L8 4.8H6.2L16.5 19z" />
-              </svg>
-            </a>
             <a href="https://www.linkedin.com/company/ds-overseas-education-consultants/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
               <svg viewBox="0 0 24 24" fill="#fff" width="16" height="16">
                 <path d="M4.8 3.5a2 2 0 110 4 2 2 0 010-4zM3.2 9h3.2v11.5H3.2V9zm5.4 0h3.1v1.6h.05c.43-.8 1.5-1.7 3.1-1.7 3.3 0 3.9 2.1 3.9 4.9v6.7h-3.2v-5.9c0-1.4 0-3.2-2-3.2s-2.3 1.5-2.3 3.1v6H8.6V9z" />
@@ -351,11 +346,6 @@ export default function Header() {
                   <rect x="3.2" y="3.2" width="17.6" height="17.6" rx="5" stroke="currentColor" strokeWidth="2" />
                   <circle cx="12" cy="12" r="4" stroke="currentColor" strokeWidth="2" />
                   <circle cx="17.2" cy="6.8" r="1.3" fill="currentColor" />
-                </svg>
-              </a>
-              <a href="#" aria-label="X">
-                <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
-                  <path d="M17.5 3h3l-6.6 7.5L21.7 21h-5.9l-4.3-5.6L6.5 21H3.4l7-8L2.6 3h6l3.9 5.2L17.5 3zm-1 16h1.7L8 4.8H6.2L16.5 19z" />
                 </svg>
               </a>
               <a href="https://www.linkedin.com/company/ds-overseas-education-consultants/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
