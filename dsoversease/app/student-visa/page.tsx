@@ -109,7 +109,7 @@ function StudentVisaServices() {
     },
     {
       icon: "💰",
-      title: "Education Loan & Visa Documentation",
+      title: "Education Loan",
       desc: "Complete support for loan processing and building a strong, accurate visa file.",
     },
     {

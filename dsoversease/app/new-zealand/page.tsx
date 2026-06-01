@@ -326,7 +326,7 @@ function StepsToStudy() {
   const steps = [
     { num: "01", icon: "🎯", title: "Choose the Right Course", desc: "Select a program aligned with your goals" },
     { num: "02", icon: "📄", title: "Secure Your Admission", desc: "Apply and get your offer letter" },
-    { num: "03", icon: "📝", title: "Build a Strong Profile", desc: "Prepare SOP, IELTS & documents" },
+    { num: "03", icon: "📝", title: "Financial Documentation", desc: "Prepare PTE/IELTS, financial documentation & documents" },
     { num: "04", icon: "🛂", title: "Apply for Your Visa", desc: "Complete your student visa process" },
     { num: "05", icon: "✈️", title: "Start Your Journey", desc: "Fly and begin your New Zealand experience" },
   ];

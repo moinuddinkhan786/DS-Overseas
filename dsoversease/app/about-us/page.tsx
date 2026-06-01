@@ -3,10 +3,11 @@
 /* eslint-disable @next/next/no-img-element */
 import { useEffect, useState } from "react";
 import Header from "../components/Header";
+import "./founder.css";
 
 const founderStats = [
   ["9+", "Years Experience"],
-  ["100s", "Profiles Guided"],
+  ["10,000+", "Students Guided"],
   ["1:1", "Personal Approach"],
 ];
 
@@ -33,6 +34,7 @@ const differenceCards = [
   ["03", "Single Point of Contact", "No confusion, no back-and-forth. One dedicated expert handles everything for you."],
   ["04", "Transparent Process", "Honest advice, no hidden steps. We believe in complete clarity from day one."],
   ["05", "Support After You Arrive", "Our support does not stop at the airport. We are here even after you reach abroad."],
+  ["06", "Proven Expertise", "With years of experience and hundreds of successful applications, we guide you with confidence at every step."],
 ];
 
 function CheckIcon() {
@@ -63,11 +65,21 @@ export default function AboutUs() {
     const pills = window.setInterval(() => setPillSlide((value) => (value + 1) % founderPills.length), 2200);
     const reviews = window.setInterval(() => setReviewPage((value) => (value + 1) % testimonials.length), 4200);
     const difference = window.setInterval(() => setDiffSlide((value) => (value + 1) % differenceCards.length), 2400);
+
+    // Load Playfair Display font
+    const link = document.createElement('link');
+    link.href = 'https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500&display=swap';
+    link.rel = 'stylesheet';
+    document.head.appendChild(link);
+
     return () => {
       window.clearInterval(stats);
       window.clearInterval(pills);
       window.clearInterval(reviews);
       window.clearInterval(difference);
+      if (link.parentNode) {
+        document.head.removeChild(link);
+      }
     };
   }, []);
 
@@ -79,7 +91,7 @@ export default function AboutUs() {
         <div className="founder-bg-texture" />
         <div className="founder-container">
           <div className="founder-top-label"><span>The Face Behind DS Overseas</span></div>
-          <h1 className="founder-headline">Meet the Founder <em>Behind</em> DS Overseas</h1>
+          <h2 className="founder-headline">Meet the Founder <em>Behind</em> DS Overseas</h2>
 
           <div className="founder-layout">
             <div className="founder-photo-card">
@@ -90,21 +102,22 @@ export default function AboutUs() {
               <div className="founder-photo-frame">
                 <img
                   src="https://lavender-narwhal-554808.hostingersite.com/wp-content/uploads/2026/04/IMG_9444.png"
-                  alt="Dharmik Soni, Founder of DS Overseas"
+                  alt="Dharmik Soni — Founder, DS Overseas"
+                  loading="lazy"
                 />
                 <div className="founder-photo-nametag">
                   <h3>Dharmik Soni</h3>
-                  <p>Founder & CEO - DS Overseas</p>
+                  <p>Founder &amp; CEO · DS Overseas</p>
                 </div>
               </div>
             </div>
 
             <div className="founder-content">
               <div className="founder-name-block">
-                <h2 className="founder-name">Dharmik Soni</h2>
-                <p className="founder-role">Founder & CEO - DS Overseas</p>
+                <h3 className="founder-name">Dharmik Soni</h3>
+                <p className="founder-role">Founder &amp; CEO — DS Overseas</p>
               </div>
-              <div className="founder-quote">Students need the right guidance and clarity, not just an agent.</div>
+              <div className="founder-quote">Students need the right guidance and clarity — not just an agent.</div>
 
               <div className="founder-stats">
                 {founderStats.map(([num, label]) => (
@@ -115,24 +128,35 @@ export default function AboutUs() {
                 ))}
               </div>
 
-              <MobileBelt
-                className="founder-stats-mobile"
-                current={statSlide}
-                setCurrent={setStatSlide}
-                total={founderStats.length}
-              >
-                {founderStats.map(([num, label]) => (
-                  <div className="founder-stat" key={label}>
-                    <div className="founder-stat-num">{num}</div>
-                    <div className="founder-stat-label">{label}</div>
+              <div className="founder-stats-mobile">
+                <div className="fs-viewport">
+                  <div className="fs-belt" style={{ transform: `translateX(-${statSlide * (100 / founderStats.length)}%)` }}>
+                    {founderStats.map(([num, label]) => (
+                      <div className="fs-slide" key={label}>
+                        <div className="founder-stat">
+                          <div className="founder-stat-num">{num}</div>
+                          <div className="founder-stat-label">{label}</div>
+                        </div>
+                      </div>
+                    ))}
                   </div>
-                ))}
-              </MobileBelt>
+                </div>
+                <div className="fs-dots">
+                  {founderStats.map((_, idx) => (
+                    <button
+                      key={idx}
+                      className={`fs-dot ${idx === statSlide ? 'active' : ''}`}
+                      aria-label={`Stat ${idx + 1}`}
+                      onClick={() => setStatSlide(idx)}
+                    />
+                  ))}
+                </div>
+              </div>
 
               <div className="founder-body">
-                <p>With over 9 years of experience in the study abroad industry, Dharmik Soni has guided students through one of the most important decisions of their lives, helping them choose the right path with confidence and clarity.</p>
-                <p>Having worked with thousands of profiles, Dharmik understands that every journey is different. That is why DS Overseas focuses on personalized planning instead of a one-size-fits-all approach.</p>
-                <p>Dharmik personally stays engaged in every case, ensuring each application is well-prepared, accurate, and aligned with each student&apos;s individual goals, from course selection to documentation and visa processes.</p>
+                <p>With over 9 years of experience in the study abroad industry, Dharmik Soni has guided students through one of the most important decisions of their lives — helping them choose the right path with confidence and clarity.</p>
+                <p>Having worked with Thousands of students, Dharmik understands that every journey is different. That&apos;s why DS Overseas focuses on personalized planning instead of a one-size-fits-all approach — because no two students are the same.</p>
+                <p>What truly sets DS Overseas apart is the hands-on involvement. Dharmik personally stays engaged in every case, ensuring each application is well-prepared, accurate, and aligned with the student&apos;s individual goals — from choosing the right course to handling documentation and visa processes.</p>
               </div>
 
               <div className="founder-pills">
@@ -141,16 +165,27 @@ export default function AboutUs() {
                 ))}
               </div>
 
-              <MobileBelt
-                className="founder-pills-mobile"
-                current={pillSlide}
-                setCurrent={setPillSlide}
-                total={founderPills.length}
-              >
-                {founderPills.map((pill) => (
-                  <span className="founder-pill" key={pill}><span className="founder-pill-dot" />{pill}</span>
-                ))}
-              </MobileBelt>
+              <div className="founder-pills-mobile">
+                <div className="fp-viewport">
+                  <div className="fp-belt" style={{ transform: `translateX(-${pillSlide * (100 / founderPills.length)}%)` }}>
+                    {founderPills.map((pill) => (
+                      <div className="fp-slide" key={pill}>
+                        <span className="founder-pill"><span className="founder-pill-dot" />{pill}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                <div className="fp-dots">
+                  {founderPills.map((_, idx) => (
+                    <button
+                      key={idx}
+                      className={`fp-dot ${idx === pillSlide ? 'active' : ''}`}
+                      aria-label={`Pill ${idx + 1}`}
+                      onClick={() => setPillSlide(idx)}
+                    />
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </div>

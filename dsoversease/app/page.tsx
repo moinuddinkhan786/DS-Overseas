@@ -1,7 +1,7 @@
 "use client";
 
 /* eslint-disable @next/next/no-img-element */
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Header from "./components/Header";
 import ReelsSection from "./components/ReelsSection";
 
@@ -92,6 +92,7 @@ const destinations = [
   {
     country: "Canada",
     code: "🇨🇦",
+    flagCode: "ca",
     growth: "+25% growth",
     tagline: "Study. Work. Settle.",
     desc: "Globally respected education with strong post-study work pathways.",
@@ -105,6 +106,7 @@ const destinations = [
   {
     country: "Australia",
     code: "🇦🇺",
+    flagCode: "au",
     growth: "+18% growth",
     tagline: "High ROI. High Lifestyle.",
     desc: "Globally ranked universities with excellent work rights.",
@@ -118,6 +120,7 @@ const destinations = [
   {
     country: "United Kingdom",
     code: "🇬🇧",
+    flagCode: "gb",
     growth: "+12% growth",
     tagline: "1-Year Master's. Global Exposure.",
     desc: "Fast-track degrees with excellent career prospects.",
@@ -130,6 +133,7 @@ const destinations = [
   {
     country: "USA",
     code: "🇺🇸",
+    flagCode: "us",
     growth: "+15% growth",
     tagline: "World's Largest Education Hub.",
     desc: "Unmatched academic flexibility and global career scope.",
@@ -142,6 +146,7 @@ const destinations = [
   {
     country: "New Zealand",
     code: "🇳🇿",
+    flagCode: "nz",
     growth: "+10% growth",
     tagline: "Peaceful Country. Powerful Degrees.",
     desc: "Industry-focused education in a safe, welcoming environment.",
@@ -159,6 +164,7 @@ const essentials = [
   ["Travel Insurance", "Comprehensive coverage for medical, travel, and emergency needs abroad.", "/travel-insurance"],
   ["Pre-Departure Guidance", "Step-by-step briefing on travel, documents, culture, and settling abroad confidently.", "/pre-departure-guidance"],
   ["Accommodation Assistance", "Support in finding safe, budget-friendly student housing near your university.", "/accommodation"],
+  ["Visa Filing Support", "Expert assistance with documentation, application review, and visa submission for a smoother approval process.", "/visa-filing-support"],
 ];
 
 function ArrowIcon() {
@@ -196,6 +202,18 @@ export default function Home() {
   // Form state
   const [formLoading, setFormLoading] = useState(false);
   const [formMessage, setFormMessage] = useState<{ type: "success" | "error"; text: string } | null>(null);
+
+  useEffect(() => {
+    // Load flag-icons CSS
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = 'https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.2.3/css/flag-icons.min.css';
+    document.head.appendChild(link);
+
+    return () => {
+      document.head.removeChild(link);
+    };
+  }, []);
 
   const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -292,8 +310,8 @@ export default function Home() {
         <h2>Expert guidance for your international journey</h2>
         <div className="stat-grid">
           {[
-            ["25,000+", "Students Placed", "Successfully guided students to their dream universities"],
-            ["500+", "University Partners", "Direct and indirect partnerships with top-ranked institutions"],
+            ["10,000+", "Students Placed", "Successfully guided students to their dream universities"],
+            ["300+", "University Partners", "Direct and indirect partnerships with top-ranked institutions"],
             ["99%", "Visa Success Rate", "Industry-leading visa approval success"],
             ["10+", "Countries", "Global network of educational opportunities"],
           ].map(([value, title, desc]) => (
@@ -331,7 +349,7 @@ export default function Home() {
       </SliderSection>
 
       <section className="trust-copy">
-        <h2>Why 15,000+ Students Trust Us</h2>
+        <h2>Why 10,000+ Students Trust Us</h2>
         <p>We do not just process applications. We build successful futures.</p>
         <p>Clear strategy. Honest guidance. Real results.</p>
       </section>
@@ -377,10 +395,9 @@ export default function Home() {
             </div>
             <div className="destination-body">
               <div className="country-row">
-                <span className="flag-code">{destination.code}</span>
+                <span className={`flag-code fi fi-${destination.flagCode}`}></span>
                 <div>
                   <h3>{destination.country}</h3>
-                  <span>{destination.growth}</span>
                 </div>
               </div>
               <h4>{destination.tagline}</h4>
@@ -408,12 +425,11 @@ export default function Home() {
         setCurrent={setEssSlide}
         total={essentials.length}
       >
-        {essentials.map(([title, desc, url]) => (
+        {essentials.map(([title, desc]) => (
           <article className="essential-card" key={title}>
             <div className="icon-box"><ServiceIcon /></div>
             <h3>{title}</h3>
             <p>{desc}</p>
-            <a href={url}>Learn More <ArrowIcon /></a>
           </article>
         ))}
       </SliderSection>

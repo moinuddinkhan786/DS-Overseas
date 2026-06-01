@@ -37,6 +37,9 @@ export default function VisitorVisaPage() {
       {/* Section 2: Visitor Visa Services with Destinations */}
       <VisitorVisaServices />
 
+      {/* Partition Line */}
+      <div style={{ width: '100%', height: '1px', backgroundColor: '#e0e0e0', margin: '0 auto' }}></div>
+
       {/* Section 3: What We Help You With */}
       <WhatWeHelpWith />
 
@@ -104,6 +107,15 @@ function VisitorVisaServices() {
         <p className="dso-sub">
           We don&apos;t just process your application. We help you build a strong, well-planned Visitor Visa journey from start to approval.
         </p>
+
+        {/* Partition Line */}
+        <div style={{
+          width: '100vw',
+          height: '1px',
+          backgroundColor: '#ffffff',
+          margin: '40px 0',
+          marginLeft: 'calc(50% - 50vw)'
+        }}></div>
 
         {/* Destinations Block */}
         <div className="dest-block">

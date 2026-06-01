@@ -25,12 +25,12 @@ export default function Footer() {
               We help students achieve their dreams of studying abroad with expert guidance and support.
             </p>
             <div className="ds-footer-socials">
-              <a href="#" aria-label="Facebook" className="ds-footer-social-link">
+              <a href="https://www.facebook.com/profile.php?id=61586558824192" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="ds-footer-social-link">
                 <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
                   <path d="M14 7h2.2V3.6C15.8 3.5 14.7 3.4 13.5 3.4c-2.6 0-4.4 1.6-4.4 4.5V10H6.2v3.4h2.9V22h3.5v-8.6h2.8l.5-3.4h-3.3V8.3c0-1 .3-1.3 1.2-1.3z" />
                 </svg>
               </a>
-              <a href="#" aria-label="Instagram" className="ds-footer-social-link">
+              <a href="https://www.instagram.com/dsoverseasconsultants?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="ds-footer-social-link">
                 <svg viewBox="0 0 24 24" fill="none" width="20" height="20">
                   <rect x="3.2" y="3.2" width="17.6" height="17.6" rx="5" stroke="currentColor" strokeWidth="2" />
                   <circle cx="12" cy="12" r="4" stroke="currentColor" strokeWidth="2" />
@@ -42,7 +42,7 @@ export default function Footer() {
                   <path d="M17.5 3h3l-6.6 7.5L21.7 21h-5.9l-4.3-5.6L6.5 21H3.4l7-8L2.6 3h6l3.9 5.2L17.5 3zm-1 16h1.7L8 4.8H6.2L16.5 19z" />
                 </svg>
               </a>
-              <a href="#" aria-label="LinkedIn" className="ds-footer-social-link">
+              <a href="https://www.linkedin.com/company/ds-overseas-education-consultants/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="ds-footer-social-link">
                 <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
                   <path d="M4.8 3.5a2 2 0 110 4 2 2 0 010-4zM3.2 9h3.2v11.5H3.2V9zm5.4 0h3.1v1.6h.05c.43-.8 1.5-1.7 3.1-1.7 3.3 0 3.9 2.1 3.9 4.9v6.7h-3.2v-5.9c0-1.4 0-3.2-2-3.2s-2.3 1.5-2.3 3.1v6H8.6V9z" />
                 </svg>
