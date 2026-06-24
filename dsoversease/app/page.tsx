@@ -296,7 +296,7 @@ export default function Home() {
             <option value="New Zealand">New Zealand</option>
           </select>
           <button className="full" type="submit" disabled={formLoading}>
-            {formLoading ? "Submitting..." : "Submit"}
+            {formLoading ? "Submitting..." : "Get Free Counselling"}
           </button>
           {formMessage && (
             <div className={`full form-message ${formMessage.type}`}>

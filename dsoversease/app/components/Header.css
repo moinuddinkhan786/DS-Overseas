@@ -597,7 +597,23 @@
   .ds-drawer-contact svg {
     flex-shrink: 0;
     margin-top: 2px;
-    color: #1257d6;
+    color: var(--drawer-contact-icon-color, #1257d6);
+    filter: drop-shadow(0 0 7px var(--drawer-contact-icon-glow, rgba(18, 87, 214, 0.2)));
+  }
+
+  .ds-drawer-contact-address {
+    --drawer-contact-icon-color: #16a34a;
+    --drawer-contact-icon-glow: rgba(22, 163, 74, 0.28);
+  }
+
+  .ds-drawer-contact-phone {
+    --drawer-contact-icon-color: #0284c7;
+    --drawer-contact-icon-glow: rgba(2, 132, 199, 0.28);
+  }
+
+  .ds-drawer-contact-email {
+    --drawer-contact-icon-color: #d97706;
+    --drawer-contact-icon-glow: rgba(217, 119, 6, 0.28);
   }
 
   .ds-drawer-contact a {

@@ -138,7 +138,7 @@ function ReachSection() {
           </a>
 
           {/* Email Card */}
-          <a href="mailto:info@dsoverseas.com" className="reach-card rc-mail">
+          <a href="mailto:ceo@dsoverseasdu.com" className="reach-card rc-mail">
             <div className="rc-icon">
               <svg viewBox="0 0 24 24">
                 <rect x="2" y="4" width="20" height="16" rx="2" />
@@ -150,12 +150,14 @@ function ReachSection() {
             <p className="rc-desc">
               Have questions? We&apos;re just an email away. Our team will respond with a helpful, detailed reply.
             </p>
-            <div className="rc-pill">
+            <div className="rc-pill rc-mail-pill">
               <svg viewBox="0 0 24 24">
                 <rect x="2" y="4" width="20" height="16" rx="2" />
                 <path d="M2 7l10 7 10-7" />
               </svg>
-              info@dsoverseas.com
+              <span>
+                <strong>ceo@dsoverseasdu.com</strong>
+              </span>
             </div>
             <div className="rc-divider"></div>
             <span className="rc-link">

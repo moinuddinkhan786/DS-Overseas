@@ -69,14 +69,26 @@
   width: 38px;
   height: 38px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.1);
-  color: #ffffff;
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--social-color, #1257d6);
   transition: all 0.3s ease;
 }
 
+.ds-footer-social-link:nth-child(1) {
+  --social-color: #1877f2;
+}
+
+.ds-footer-social-link:nth-child(2) {
+  --social-color: #e1306c;
+}
+
+.ds-footer-social-link:nth-child(3) {
+  --social-color: #0a66c2;
+}
+
 .ds-footer-social-link:hover {
-  background: #ffffff;
-  color: #1a237e;
+  background: var(--social-color, #ffffff);
+  color: #ffffff;
   transform: translateY(-3px);
 }
 
@@ -149,10 +161,39 @@
   font-family: var(--font-dm-sans);
 }
 
+.ds-footer-contact li a {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
 .ds-footer-contact li svg {
   flex-shrink: 0;
   margin-top: 2px;
-  stroke: #ffffff;
+  color: var(--contact-icon-color, #ffffff);
+  filter: drop-shadow(0 0 8px var(--contact-icon-glow, rgba(255, 255, 255, 0.35)));
+}
+
+.ds-footer-contact-address {
+  --contact-icon-color: #31d67b;
+  --contact-icon-glow: rgba(49, 214, 123, 0.45);
+}
+
+.ds-footer-contact-phone {
+  --contact-icon-color: #66d9ff;
+  --contact-icon-glow: rgba(102, 217, 255, 0.48);
+}
+
+.ds-footer-contact-email {
+  --contact-icon-color: #ffd166;
+  --contact-icon-glow: rgba(255, 209, 102, 0.48);
+}
+
+.ds-footer-contact li a:hover {
+  color: #ffffff;
 }
 
 /* Bottom Bar */

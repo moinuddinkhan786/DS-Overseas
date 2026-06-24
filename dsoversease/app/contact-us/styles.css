@@ -379,6 +379,18 @@
   font-size: 13px;
 }
 
+.rc-mail-pill span {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  line-height: 1.25;
+}
+
+.rc-mail-pill strong {
+  color: #fff3b0;
+  font: inherit;
+}
+
 .rc-pill svg {
   width: 15px;
   height: 15px;
